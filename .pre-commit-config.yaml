@@ -1,0 +1,25 @@
+---
+repos:
+  # clang-format [C++ Formatter]
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v21.1.0
+    hooks:
+      - id: clang-format
+        exclude_types: ["json"]
+        
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=250"]
+      - id: check-executables-have-shebangs
+      - id: forbid-new-submodules
+      - id: trailing-whitespace
+      - id: check-illegal-windows-names
+      - id: mixed-line-ending
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0 # Use the latest stable version
+    hooks:
+      - id: markdownlint
+        args: [--fix]

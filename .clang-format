@@ -1,0 +1,38 @@
+Language:        Cpp
+BasedOnStyle:    WebKit
+
+# Use Allman-style for multi-line control structures, hybrid inline for short blocks
+BreakBeforeBraces: Allman
+
+# Prevent one-liner conditionals or loops with braces
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+
+# Argument formatting - one per line when long
+BinPackArguments: false
+BinPackParameters: false
+AllowAllArgumentsOnNextLine: false
+
+# Keep formatting clean and readable
+# ColumnLimit: 100
+UseTab: Never
+IndentWidth: 4
+
+# WebKit: Includes of system headers must come after includes of other headers.
+# C++ system headers usually don’t end in .h/.hpp so lets group them as the following
+# 1) "quoted-headers.h"
+# 2) <system-but-not-built-in-headers.h/hpp>
+# 3) <system-headers>
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^<.*\.h>'
+    Priority:        2
+  - Regex:           '^<.*\.hpp>'
+    Priority:        2
+  - Regex:           '^<.*\.tpp>'
+    Priority:        2
+  - Regex:           '^<.*>'
+    Priority:        3
+  - Regex:           '.*'
+    Priority:        1
