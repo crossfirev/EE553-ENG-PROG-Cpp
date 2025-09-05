@@ -61,9 +61,6 @@ int main()
     cout << sumUpTo(100) << '\n';
 
     // Problem Two
-    cout << sumReciprocalNormal(100) << '\n';
-    cout << sumReciprocalRev(100) << '\n';
-
     float sum1 = sumReciprocalNormal(100); // compute the sum 1/1 + 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/100 =5.18....
     float sum2 = sumReciprocalRev(100); // compute the sum 1/100 + 1/99 + 1/98 + ... + 1/1 = 5.18
     cout << sum1 << '\n';
