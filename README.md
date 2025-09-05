@@ -36,7 +36,7 @@ By the end of the course, students were able to:
 ├── homework/       
 │   ├── hw01/       # Homework 1 submission + supporting files
 │   ├── hw02/       # Homework 2 submission + supporting files
-│   ├── hw03/       # ...
+│   └── hw03/       # ...
 ├── projects/       # Course project(s)
 └── README.md       # Course-level overview
 ```
