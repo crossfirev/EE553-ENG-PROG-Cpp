@@ -1,4 +1,7 @@
 # EE 553: Engineering Programming, C++  
+![C++](https://img.shields.io/badge/language-C++17-blue.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/crossfirev/EE553-ENG-PROG-Cpp)
+
 *Stevens Institute of Technology – Master of Engineering in Robotics*  
 
 This repository contains coursework, assignments, and projects completed for **EE 553: Engineering Programming, C++**, a graduate-level course at Stevens Institute of Technology.  
@@ -26,7 +29,7 @@ By the end of the course, students were able to:
 4. Manage memory allocation and deallocation appropriately.  
 5. Apply object-oriented programming to solve real problems.  
 6. Analyze C++ programs based on developer and end-user requirements.  
-7. Use appropriate C++ terminology in problem-solving:contentReference.  
+7. Use appropriate C++ terminology in problem-solving.  
 
 ---
 
@@ -41,7 +44,7 @@ By the end of the course, students were able to:
 └── README.md       # Course-level overview
 ```
 
-Each `homeworkN/` directory includes:  
+Each `hw##/` directory includes:  
 - Source code (`.cpp`, `.hpp`)  
 - Build instructions (Makefile or CMakeLists.txt)  
 - A local `README.md` describing the assignment and solution  
@@ -87,4 +90,4 @@ For larger projects, CMake build instructions will be provided.
 ## ✍️ Author
 Maintained by **Matthew Lepis**  
 (expected 2027) Master of Engineering – Robotics, Stevens Institute of Technology  
-Research Engineer  
+https://www.linkedin.com/in/matthewlepis/ 
