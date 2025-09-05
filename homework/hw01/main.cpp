@@ -14,23 +14,42 @@ int sumUpTo(int sumTo)
     return sum;
 }
 
+// --- Problem 2 ---
+float sumReciprocalNormal(int sumTo_denominator)
+{
+    float sum = 0; 
+    for(int i = 1; i <= sumTo_denominator; i++)
+    {
+        sum += 1.0/i;
+    }
+    return sum;
+}
+
+float sumReciprocalRev(int sumFrom_denominator)
+{
+    float sum = 0; 
+    for(int i = sumFrom_denominator; i >= 1; i--)
+    {
+        sum += 1.0/i;
+    }
+    return sum;
+}
+
 int main() {
     // Problem One
     cout << sumUpTo(100) << '\n';
 
     // Problem Two
-    // cout << sumReciprocalNormal(100) << '\n';
-    // cout << sumReciprocalRev(100) << '\n';
+    cout << sumReciprocalNormal(100) << '\n';
+    cout << sumReciprocalRev(100) << '\n';
 
-    //float sum1;// compute the sum 1/1 + 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/100 =5.18....
-    //float sum2;// compute the sum 1/100 + 1/99 + 1/98 + ... + 1/1 = 5.18
-    // use function you made
-    //cout << sum1 << '\n';
-    //cout << sum2 << '\n';
-    //cout << (sum1 - sum2) << '\n';
+    float sum1 = sumReciprocalNormal(100);  // compute the sum 1/1 + 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/100 =5.18....
+    float sum2 = sumReciprocalRev(100);     // compute the sum 1/100 + 1/99 + 1/98 + ... + 1/1 = 5.18
+    cout << sum1 << '\n';
+    cout << sum2 << '\n';
+    cout << (sum1 - sum2) << '\n';
 
-    // inclusive: 1*1 + 2*2 + 3*3 + 4*4 + 5*5
-    // inclusive: 1*1 + 2*2 + 3*3 + 4*4 + 5*5 +6*6 + 7*7
+    // sum1 - sum2 isn't zero. This is expected, a result of floating point rounding.
 
     // Problem Three
     // cout << sumMysteryNormal(100) << '\n';
