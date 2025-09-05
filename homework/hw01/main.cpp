@@ -1,6 +1,6 @@
 #include <iostream>
 
-using namespace std; // if not used, must write std::cout or std::endl
+using namespace std;
 
 // --- Problem 1 ---
 int sumUpTo(int sumTo)
