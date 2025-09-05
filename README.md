@@ -33,9 +33,10 @@ By the end of the course, students were able to:
 ## 📂 Repository Structure
 ```text
 .
-├── homework1/      # Homework 1 submission + supporting files
-├── homework2/      # Homework 2 submission + supporting files
-├── homework3/      # ...
+├── homework/       
+│   ├── hw01/       # Homework 1 submission + supporting files
+│   ├── hw02/       # Homework 2 submission + supporting files
+│   ├── hw03/       # ...
 ├── projects/       # Course project(s)
 └── README.md       # Course-level overview
 ```
