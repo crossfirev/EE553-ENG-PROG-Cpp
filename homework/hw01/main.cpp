@@ -35,6 +35,27 @@ float sumReciprocalRev(int sumFrom_denominator)
     return sum;
 }
 
+// --- Problem 3 ---
+float sumMysteryNormal(int sumTo_denominator)
+{
+    float sum = 0; 
+    for(int i = 1; i <= sumTo_denominator; i++)
+    {
+        sum += 1.0/(i*i);
+    }
+    return sum;
+}
+
+float sumMysteryRev(int sumFrom_denominator)
+{
+    float sum = 0; 
+    for(int i = sumFrom_denominator; i >= 1; i--)
+    {
+        sum += 1.0/(i*i);
+    }
+    return sum;
+}
+
 int main() {
     // Problem One
     cout << sumUpTo(100) << '\n';
@@ -49,19 +70,11 @@ int main() {
     cout << sum2 << '\n';
     cout << (sum1 - sum2) << '\n';
 
-    // sum1 - sum2 isn't zero. This is expected, a result of floating point rounding.
+    // sum1 - sum2 isn't zero. This is expected, a result of floating point rounding. This error can be ~reduced~ with `double` or `long double` implementations.
 
     // Problem Three
-    // cout << sumMysteryNormal(100) << '\n';
-    // cout << sumMysteryRev(100) << '\n';
-    // mystery1sum
-    // be careful! if you calculate as int this will not work. use float!
-    // compute 1.0/(1*1) + 1.0/(2.0*2.0) + 1/(3*3) + ... + 1/(n*n)  n-> infinity
-    //float mystery1; //
-
-    // mystery2sum
-    // compute  1/(n*n) + 1/((n-1)*(n-1)) +  1/((n-2)*(n-2)) + ...
-    //float mystery2; //
+    cout << sumMysteryNormal(100) << '\n';
+    cout << sumMysteryRev(100) << '\n';
 
     return 0;
 }
