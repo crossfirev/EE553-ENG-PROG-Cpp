@@ -1,7 +1,7 @@
 # EE 553: Engineering Programming, C++  
 ![C++](https://img.shields.io/badge/language-C++17-blue.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/crossfirev/EE553-ENG-PROG-Cpp)
-[![Homework Issues](https://img.shields.io/badge/issues-homework-blue)](https://github.com/crossfirev/EE553-ENG-PROG-Cpp/issues?q=label%3Ahomework)
+[![Homework Issues](https://img.shields.io/badge/issues-homework-5319e7)](https://github.com/crossfirev/EE553-ENG-PROG-Cpp/issues?q=is%3Aissue label%3Ahomework)
 
 *Stevens Institute of Technology – Master of Engineering in Robotics*  
 
