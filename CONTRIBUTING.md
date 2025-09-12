@@ -40,31 +40,31 @@ This repo uses **pre-commit hooks** to enforce consistent formatting and checks 
 ### 1. Install dependencies
 Make sure you have Python (3.8+) and `pip` available. Then run:  
 
-|||
+```
 pip install pre-commit
-|||
+```
 
 ### 2. Install hooks locally
 From the root of the repo:  
 
-|||
+```
 pre-commit install
-|||
+```
 
 This sets up git hooks so that every commit automatically runs the checks defined in `.pre-commit-config.yaml`.  
 
 ### 3. Run hooks manually (optional)
 You can run the hooks against all files at any time with:  
 
-|||
+```
 pre-commit run --all-files
-|||
+```
 
 ---
 
 ## 📂 Repository Structure
 
-|||
+```
 homework/
   hw01/   # Homework 1 source files
   hw02/   # Homework 2 source files
@@ -72,7 +72,7 @@ homework/
 .github/
   ISSUE_TEMPLATE/           # Templates for Issues
   PULL_REQUEST_TEMPLATE/    # Templates for Pull Requests
-|||
+```
 
 ---
 
