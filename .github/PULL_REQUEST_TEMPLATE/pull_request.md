@@ -18,6 +18,11 @@ Closes #ISSUE_NUMBER
 
 ---
 
+### 📌 Reference  
+- [Canvas Assignment Page](PASTE-LINK-HERE) _(requires Stevens login)_  
+
+---
+
 ### ✅ Checklist  
 - [ ] Code compiles without errors  
 - [ ] All problems from the related Issue are addressed  
