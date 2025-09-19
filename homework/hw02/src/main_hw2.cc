@@ -74,8 +74,64 @@ int main() {
     //  - print x and y location
     //  - check your conversion and print angle in rad after finding x and y with cartesian coordinates conversion
     // don't forget to close your opened file
+    string lineBuffer = "";
+    int lineCounter = 0;
+    while(getline(file, lineBuffer))
+    {
+        // Skip empty lines
+        if (lineBuffer == "")
+            continue;
 
+        double r = -1.0;
+        double theta = -1.0;
 
+        // Grab each word on the line individually
+        istringstream iss(lineBuffer);
+        string word;
+
+        int counter = 0; // to control which which value is taken in, important for typing (int vs. double)
+        while (iss >> word)
+        {
+            switch (counter)
+            {
+                case 0:
+                    r = stod(word);
+                    break;
+                case 1:
+                    theta = stod(word);
+                    break;
+            }
+            counter++;
+        }
+        if (r == -1 || theta == -1) // Ensure we obtained the values
+        {
+            cout << "Failed to assign r or theta.\n";
+            exit(1);
+        }
+
+        cout << "---\n";
+        cout << "Line " << lineCounter << ".\n";
+        cout << "-\n";
+
+        cout << "Distance: " << r << "\n";
+        cout << "Angle (deg): " << theta << "\n";
+        cout << "-\n";
+        
+        double theta_rad = theta * (pi/180.0);
+        cout << "Angle (rad): " << theta_rad << "\n";
+        cout << "-\n";
+
+        double pos_x = r * cos(theta_rad);
+        double pos_y = r * sin(theta_rad);
+        cout << "Position (x): " << pos_x << "\n";
+        cout << "Position (y): " << pos_y << "\n";
+        
+        double theta_from_cartesian = angleWrap(atan2(pos_y, pos_x));
+        cout << "Angle from Cartesian (rad): " << theta_from_cartesian << "\n";
+
+        lineCounter++;
+    }
+    file.close();
     cout << "====[ end ]====" << endl;
 
     cout << "###########" << endl;
