@@ -23,6 +23,9 @@ void printIsPrimeResult(Func func, string funcName, int funcInput)
 }
 
 int main() {
+    // SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
+    std::cout << std::fixed << std::setprecision(3);
+
     cout << "###########" << endl;
     cout << "Problem One" << endl;
     cout << "###########" << endl;
