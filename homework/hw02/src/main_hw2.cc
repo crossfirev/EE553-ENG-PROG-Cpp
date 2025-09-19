@@ -173,7 +173,7 @@ int main() {
 
 
     // use Boolean CanRun to decide to do calculation or not based on condition
-    bool canRun = true;
+    // bool canRun = true;
     // define your input value and other variable
 
     // print out message to enter wind speed and take the input
