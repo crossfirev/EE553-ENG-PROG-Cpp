@@ -10,6 +10,15 @@ using namespace std;
 
 // const for pi
 const double pi = 3.14159265358979323846;
+template <typename Func>
+void printIsPrimeResult(Func func, string funcName, int funcInput)
+{
+    bool result = func(funcInput);
+    if (result)
+        cout << funcName << "(" << funcInput << ") is true, " << funcInput << " is prime." << '\n';
+    else
+        cout << funcName << "(" << funcInput << ") is false, " << funcInput << " is not prime." << '\n';
+}
 
 int main() {
     cout << "###########" << endl;
@@ -18,12 +27,15 @@ int main() {
     // For problem one, you only need to write your code in "functionPrime.cpp"
     // define isPrime
     //isPrime(19);
+    printIsPrimeResult(isPrime, "isPrime", 19);
     cout << '\n';
 
     //isPrime(81);// trial divide, 81%3 == 0 therefore not prime
+    printIsPrimeResult(isPrime, "isPrime", 81);
     cout << '\n';
 
     //isPrime(57) ; // 57 % 2, 57% 3, 57%4
+    printIsPrimeResult(isPrime, "isPrime", 57);
     cout << '\n';
 
     cout << "====[ end ]====" << endl;
