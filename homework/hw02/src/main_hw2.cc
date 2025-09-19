@@ -34,9 +34,6 @@ double angleWrap(double radians)
 }
 
 int main() {
-    // SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
-    std::cout << std::fixed << std::setprecision(3);
-
     cout << "###########" << endl;
     cout << "Problem One" << endl;
     cout << "###########" << endl;
@@ -88,6 +85,8 @@ int main() {
     //  - print x and y location
     //  - check your conversion and print angle in rad after finding x and y with cartesian coordinates conversion
     // don't forget to close your opened file
+// SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
+    std::cout << std::fixed << std::setprecision(8);
     string lineBuffer = "";
     int lineCounter = 0;
     while(getline(file, lineBuffer))
