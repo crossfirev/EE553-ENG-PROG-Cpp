@@ -195,20 +195,12 @@ int main()
     cout << "###########" << endl;
     cout << "Problem Three" << endl;
     cout << "###########" << endl;
-    // Write your code here
-
-    // use Boolean CanRun to decide to do calculation or not based on condition
-    // bool canRun = true;
-    // define your input value and other variable
 
     // print out message to enter wind speed and take the input
     // Check if speed meet condition
 
     // print out message to enter temperature and take the input
     // check if temperature  meet condition
-
-    // check if all condition is met and use canRun to start calculation of wind chill
-    // print out the value
 
     double airVelocity = -1;
     double airTemperature = DBL_MAX;
