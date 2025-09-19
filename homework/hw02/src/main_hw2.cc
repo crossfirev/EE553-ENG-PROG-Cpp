@@ -10,6 +10,8 @@ using namespace std;
 
 // const for pi
 const double pi = 3.14159265358979323846;
+const string robotpath_file_path = "./robotpath.dat";
+
 template <typename Func>
 void printIsPrimeResult(Func func, string funcName, int funcInput)
 {
@@ -48,17 +50,19 @@ int main() {
     // make sure you use the full path to .dat file, e.g., .././src/robotpath.dat
 
     //check if thefile exist or not
-    /*
-    if (thefile.is_open()){
+    ifstream file;
+    file.open(robotpath_file_path);
 
+    if (file.is_open())
+    {
         cout << "File is open and ready" << '\n';
-        cout << " " << '\n';
-
-    }else{
-        cout << "File not found!" << '\n';
-        cout << " " << '\n';
     }
-*/
+    else
+    {
+        cout << "File not found!" << '\n';
+        exit(1);
+    }
+    
     // define your variables each line r and theta from the polar coordinates
     // use defined constant pi value in your calculation
     // start reading file and do calculation
