@@ -5,6 +5,9 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <cfloat>
+#include <stdexcept>
+
 //#include "functionWind.h"
 //#include "functionPrime.h"
 
