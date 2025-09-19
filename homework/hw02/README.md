@@ -5,10 +5,8 @@
 .
 ├── CMakeLists.txt
 ├── include/
-│   └── functionPrime.h
 └── src/
-    ├── main_hw2.cc
-    └── functionPrime.cpp
+    ├── main.cpp
 ```
 
 ## Build Instructions
