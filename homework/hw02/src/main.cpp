@@ -83,6 +83,12 @@ int main()
     cout << "Problem One" << endl;
     cout << "###########" << endl;
     // For problem one, you only need to write your code in "functionPrime.cpp"
+
+    // -----
+    // You said in class that all of our work should be in THIS file when I asked. If you'd like I can give you it split for 'functionPrime.cpp'. I put it this way at your request against the instructions here.
+    // -----
+
+
     // define isPrime
     // isPrime(19);
     printIsPrimeResult(isPrime, "isPrime", 19);
