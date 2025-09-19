@@ -22,6 +22,15 @@ void printIsPrimeResult(Func func, string funcName, int funcInput)
         cout << funcName << "(" << funcInput << ") is false, " << funcInput << " is not prime." << '\n';
 }
 
+double angleWrap(double radians)
+{
+    double twoPi = 2 * pi;
+    double wrapped = std::fmod(radians, twoPi);
+    if (wrapped < 0) 
+        wrapped += twoPi;
+    return wrapped;
+}
+
 int main() {
     // SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
     std::cout << std::fixed << std::setprecision(3);
