@@ -15,21 +15,24 @@ const double pi = 3.14159265358979323846;
 const string robotpath_file_path = "./robotpath.dat";
 
 template <typename Func>
-void printIsPrimeResult(Func func, string funcName, int funcInput)
+void printIsPrimeResult(const Func in_func, const string in_funcName, const int in_funcInput)
 {
-    bool result = func(funcInput);
+    bool result = in_func(in_funcInput);
     if (result)
-        cout << funcName << "(" << funcInput << ") is true, " << funcInput << " is prime." << '\n';
+        cout << in_funcName << "(" << in_funcInput << ") is true, " << in_funcInput << " is prime." << '\n';
     else
-        cout << funcName << "(" << funcInput << ") is false, " << funcInput << " is not prime." << '\n';
+        cout << in_funcName << "(" << in_funcInput << ") is false, " << in_funcInput << " is not prime." << '\n';
 }
 
-bool isPrime(const int primeCandidate)
+bool isPrime(const int in_primeCandidate)
 {
-    for (int i = primeCandidate-1; i > 1; i--)
+    if (in_primeCandidate <= 1)
+        return false;
+
+    for (int i = 2; i*i <= in_primeCandidate; i++)
     {
         // if dividing by i gives no remainder, it isn't prime.
-        if (primeCandidate % i == 0)
+        if (in_primeCandidate % i == 0)
         {
             return false;
         }
@@ -37,10 +40,10 @@ bool isPrime(const int primeCandidate)
     return true;
 }
 
-double angleWrap(double radians)
+double angleWrap(const double in_radians)
 {
     double twoPi = 2 * pi;
-    double wrapped = std::fmod(radians, twoPi);
+    double wrapped = fmod(in_radians, twoPi);
     if (wrapped < 0) 
         wrapped += twoPi;
     return wrapped;
@@ -99,7 +102,7 @@ int main() {
     //  - check your conversion and print angle in rad after finding x and y with cartesian coordinates conversion
     // don't forget to close your opened file
 // SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
-    std::cout << std::fixed << std::setprecision(8);
+    cout << fixed << setprecision(8);
     string lineBuffer = "";
     int lineCounter = 0;
     while(getline(file, lineBuffer))
