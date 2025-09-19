@@ -1,1 +1,6 @@
+# Build files & directories
 *.out
+build/
+
+# Local Environment Files
+.vscode/
