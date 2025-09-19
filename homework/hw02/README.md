@@ -24,6 +24,14 @@ cmake --build build
 # Run it
 ./build/hw02
 ```
+#### Build and Run
+```
+cmake -S . -B build && cmake --build build && ./build/hw02
+```
+#### Debug
+```
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+```
 
 ### Windows (with CMake + Visual Studio or MSVC)
 ```
