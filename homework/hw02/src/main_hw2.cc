@@ -24,6 +24,19 @@ void printIsPrimeResult(Func func, string funcName, int funcInput)
         cout << funcName << "(" << funcInput << ") is false, " << funcInput << " is not prime." << '\n';
 }
 
+bool isPrime(const int primeCandidate)
+{
+    for (int i = primeCandidate-1; i > 1; i--)
+    {
+        // if dividing by i gives no remainder, it isn't prime.
+        if (primeCandidate % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 double angleWrap(double radians)
 {
     double twoPi = 2 * pi;
