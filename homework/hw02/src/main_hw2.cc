@@ -1,15 +1,15 @@
-#include <iostream>
-#include <cmath>  // double sin(double), double cos(double)
-#include <fstream>
-#include <cstdlib>
-#include <string>
-#include <sstream>
-#include <iomanip>
 #include <cfloat>
+#include <cmath> // double sin(double), double cos(double)
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 #include <stdexcept>
+#include <string>
 
-//#include "functionWind.h"
-//#include "functionPrime.h"
+// #include "functionWind.h"
+// #include "functionPrime.h"
 
 using namespace std;
 
@@ -32,7 +32,7 @@ bool isPrime(const int in_primeCandidate)
     if (in_primeCandidate <= 1)
         return false;
 
-    for (int i = 2; i*i <= in_primeCandidate; i++)
+    for (int i = 2; i * i <= in_primeCandidate; i++)
     {
         // if dividing by i gives no remainder, it isn't prime.
         if (in_primeCandidate % i == 0)
@@ -47,7 +47,7 @@ double angleWrap(const double in_radians)
 {
     double twoPi = 2 * pi;
     double wrapped = fmod(in_radians, twoPi);
-    if (wrapped < 0) 
+    if (wrapped < 0)
         wrapped += twoPi;
     return wrapped;
 }
@@ -72,26 +72,27 @@ double calcWindChill(const double in_airTemperature, const double in_airVelocity
 
     // Wind Chill = 35.74 + 0.6215T – 35.75(V^0.16) + 0.4275T(V^0.16)
     return c_fahrenheit_baseline
-            + c_airTempScalar * in_airTemperature
-            - c_airVelocityScalar * airVelocityRaised
-            + c_airTempVelocityScalar * in_airTemperature * airVelocityRaised;
+        + c_airTempScalar * in_airTemperature
+        - c_airVelocityScalar * airVelocityRaised
+        + c_airTempVelocityScalar * in_airTemperature * airVelocityRaised;
 }
 
-int main() {
+int main()
+{
     cout << "###########" << endl;
     cout << "Problem One" << endl;
     cout << "###########" << endl;
     // For problem one, you only need to write your code in "functionPrime.cpp"
     // define isPrime
-    //isPrime(19);
+    // isPrime(19);
     printIsPrimeResult(isPrime, "isPrime", 19);
     cout << '\n';
 
-    //isPrime(81);// trial divide, 81%3 == 0 therefore not prime
+    // isPrime(81);// trial divide, 81%3 == 0 therefore not prime
     printIsPrimeResult(isPrime, "isPrime", 81);
     cout << '\n';
 
-    //isPrime(57) ; // 57 % 2, 57% 3, 57%4
+    // isPrime(57) ; // 57 % 2, 57% 3, 57%4
     printIsPrimeResult(isPrime, "isPrime", 57);
     cout << '\n';
 
@@ -104,7 +105,7 @@ int main() {
     // first read file robotpath.dat and name it thefile by using ifstream
     // make sure you use the full path to .dat file, e.g., .././src/robotpath.dat
 
-    //check if thefile exist or not
+    // check if thefile exist or not
     ifstream file;
     file.open(robotpath_file_path);
 
@@ -117,11 +118,10 @@ int main() {
         cout << "File not found!" << '\n';
         exit(1);
     }
-    
+
     // define your variables each line r and theta from the polar coordinates
     // use defined constant pi value in your calculation
     // start reading file and do calculation
-
 
     // while reading print the following for each line:
     //  - print distance and angle
@@ -129,11 +129,12 @@ int main() {
     //  - print x and y location
     //  - check your conversion and print angle in rad after finding x and y with cartesian coordinates conversion
     // don't forget to close your opened file
-// SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
+
+    // SETTING FLOATING POINT PRECISION FOR CLEANER OUTPUT.
     cout << fixed << setprecision(8);
     string lineBuffer = "";
     int lineCounter = 0;
-    while(getline(file, lineBuffer))
+    while (getline(file, lineBuffer))
     {
         // Skip empty lines
         if (lineBuffer == "")
@@ -151,12 +152,12 @@ int main() {
         {
             switch (counter)
             {
-                case 0:
-                    r = stod(word);
-                    break;
-                case 1:
-                    theta = stod(word);
-                    break;
+            case 0:
+                r = stod(word);
+                break;
+            case 1:
+                theta = stod(word);
+                break;
             }
             counter++;
         }
@@ -173,8 +174,8 @@ int main() {
         cout << "Distance (m): " << r << "\n";
         cout << "Angle (deg): " << theta << "\n";
         cout << "-\n";
-        
-        double theta_rad = theta * (pi/180.0);
+
+        double theta_rad = theta * (pi / 180.0);
         cout << "Angle (rad): " << theta_rad << "\n";
         cout << "-\n";
 
@@ -182,7 +183,7 @@ int main() {
         double pos_y = r * sin(theta_rad);
         cout << "Position (x): " << pos_x << "\n";
         cout << "Position (y): " << pos_y << "\n";
-        
+
         double theta_from_cartesian = angleWrap(atan2(pos_y, pos_x));
         cout << "Angle from Cartesian (rad): " << theta_from_cartesian << "\n";
 
@@ -194,8 +195,7 @@ int main() {
     cout << "###########" << endl;
     cout << "Problem Three" << endl;
     cout << "###########" << endl;
-    //Write your code here
-
+    // Write your code here
 
     // use Boolean CanRun to decide to do calculation or not based on condition
     // bool canRun = true;
@@ -213,7 +213,7 @@ int main() {
     double airVelocity = -1;
     double airTemperature = DBL_MAX;
     double windChill = DBL_MAX;
-    while(true)
+    while (true)
     {
         cout << "-----------------------\n";
         cout << "Wind Chill Calculation:\n";
@@ -221,13 +221,14 @@ int main() {
         cout << "  Input Air Velocity:\n  ";
         cin >> airVelocity;
         cout << "  -------------------\n";
-        
+
         cout << "  Input Air Temperature:\n  ";
         cin >> airTemperature;
         cout << "  -------------------\n";
 
         // Cleans `cin` for the case of non-numeric input.
-        if (!cin) {
+        if (!cin)
+        {
             cerr << "ERR: Invalid input. Please enter a number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -239,7 +240,7 @@ int main() {
             windChill = calcWindChill(airTemperature, airVelocity);
             break;
         }
-        catch(const exception& e)
+        catch (const exception& e)
         {
             cerr << e.what() << '\n';
         }
