@@ -127,7 +127,7 @@ int main() {
         cout << "Line " << lineCounter << ".\n";
         cout << "-\n";
 
-        cout << "Distance: " << r << "\n";
+        cout << "Distance (m): " << r << "\n";
         cout << "Angle (deg): " << theta << "\n";
         cout << "-\n";
         
