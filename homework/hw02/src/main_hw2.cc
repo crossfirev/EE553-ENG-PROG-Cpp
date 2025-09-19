@@ -52,6 +52,31 @@ double angleWrap(const double in_radians)
     return wrapped;
 }
 
+double calcWindChill(const double in_airTemperature, const double in_airVelocity)
+{
+    if (in_airTemperature > 50.0)
+    {
+        throw invalid_argument("ERR: Air temperature > 50°F not valid for wind chill.");
+    }
+    if (in_airVelocity < 3)
+    {
+        throw invalid_argument("ERR: Air velocity < 3 mph not valid for wind chill.");
+    }
+
+    constexpr double c_fahrenheit_baseline = 35.74;
+    constexpr double c_airTempScalar = 0.6215;
+    constexpr double c_airVelocityScalar = 35.75;
+    constexpr double c_airTempVelocityScalar = 0.4275;
+
+    const double airVelocityRaised = pow(in_airVelocity, 0.16);
+
+    // Wind Chill = 35.74 + 0.6215T – 35.75(V^0.16) + 0.4275T(V^0.16)
+    return c_fahrenheit_baseline
+            + c_airTempScalar * in_airTemperature
+            - c_airVelocityScalar * airVelocityRaised
+            + c_airTempVelocityScalar * in_airTemperature * airVelocityRaised;
+}
+
 int main() {
     cout << "###########" << endl;
     cout << "Problem One" << endl;
@@ -185,7 +210,42 @@ int main() {
     // check if all condition is met and use canRun to start calculation of wind chill
     // print out the value
 
+    double airVelocity = -1;
+    double airTemperature = DBL_MAX;
+    double windChill = DBL_MAX;
+    while(true)
+    {
+        cout << "-----------------------\n";
+        cout << "Wind Chill Calculation:\n";
+        cout << "-----------------------\n";
+        cout << "  Input Air Velocity:\n  ";
+        cin >> airVelocity;
+        cout << "  -------------------\n";
+        
+        cout << "  Input Air Temperature:\n  ";
+        cin >> airTemperature;
+        cout << "  -------------------\n";
 
+        // Cleans `cin` for the case of non-numeric input.
+        if (!cin) {
+            cerr << "ERR: Invalid input. Please enter a number.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        try
+        {
+            windChill = calcWindChill(airTemperature, airVelocity);
+            break;
+        }
+        catch(const exception& e)
+        {
+            cerr << e.what() << '\n';
+        }
+    }
+    cout << "================\n";
+    cout << "Wind Chill (°F): " << windChill << "\n";
 
     cout << "====[ end ]====" << endl;
 
