@@ -3,6 +3,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
+#include <sstream>
+#include <iomanip>
 //#include "functionWind.h"
 //#include "functionPrime.h"
 
