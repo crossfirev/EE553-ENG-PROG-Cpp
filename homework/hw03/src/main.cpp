@@ -2,19 +2,100 @@
 #include <math.h>
 using namespace std;
 
+void ReadElements(int* arr, int num_elements)
+{
+    cout << "-----\n";
+    cout << "Taking in " << num_elements << " values. Continue entering until exhausted.\n";
+    for(int i = 0; i < num_elements; i++)
+    {
+        cout << "Element " << i << ": ";
+        cin >> arr[i];
+    }
+    cout << "-----\n";
+}
 
+void PrintElements(int* arr, int num_elements)
+{
+    for(int i = 0; i < num_elements; i++)
+    {
+        cout << arr[i];
+        if (!(i == num_elements-1))
+        {
+            cout << ", ";
+        }
+    }
+    cout << "\n";
+    cout << "-----\n";
+}
 
-int main() {
+void PrintElementsRev(int* arr, int num_elements)
+{
+    for(int i = num_elements-1; i >= 0; i--)
+    {
+        cout << arr[i];
+        if (!(i == 0))
+        {
+            cout << ", ";
+        }
+    }
+    cout << "\n";
+    cout << "-----\n";
+}
+
+void OddsOnly(int* arr, int num_elements, int*& return_arr, int& return_num_odds)
+{
+    cout << "\tCounting odd values...\n";
+    int num_odds = 0;
+    for(int i = 0; i < num_elements; i++)
+    {
+        if(arr[i] % 2 != 0)
+        {
+            num_odds++;
+        }
+    }
+    return_num_odds = num_odds; // Return the number of odds by reference
+
+    cout << "\tAllocating a new array based on the number of odd values in the original array...\n";
+    return_arr = new int[num_odds];
+    int return_arr_idx = 0;
+    for(int i = 0; i < num_elements; i++)
+    {
+        if(arr[i] % 2 != 0)
+        {
+            return_arr[return_arr_idx] = arr[i]; 
+            return_arr_idx++;
+        }
+    }
+
+    PrintElements(return_arr, return_num_odds);
+}
+
+int main() 
+{
 	cout << "########" << endl;
     cout << "Problem One" << endl;
     cout << "########" << endl;
   // read how many number of elements you want to create
     int n;
-    cout << "Please enter number of elements:";
-    cin >> n;
+    
+    while(true)
+    {
+        cout << "Please enter number of elements: ";
+        cin >> n;
+        
+        if(n <= 0)
+        {
+            cout << "ERR: Invaild input. \n\t≤ 0 is not valid.\n";
+        }
+        else
+        {
+            break;
+        }
+    }
 
-    // Use function ReadElements() to read array (A) from the user with given number of elements
-    // define new empty array dynamically with n number as int *A = new int[n];
+
+    // Use function ReadElements() to read array (arr) from the user with given number of elements
+    // define new empty array dynamically with n number as int *arr = new int[n];
     // write your code here
     int* A = new int[n];
 
@@ -23,13 +104,13 @@ int main() {
 
     // Use function PrintElements() that can print the entered array
     // write your code here
-    cout << "Print Array" << endl;
+    cout << "Printing Array..." << endl;
     PrintElements(A, n);
 
 
     // Use function PrintElementsRev() that can print the array in reverse order
     // write your code here
-    cout << "Print Reverse Array" << endl;
+    cout << "Printing Reverse Array..." << endl;
     PrintElementsRev(A, n);
 
 
@@ -44,7 +125,7 @@ int main() {
     int m = 0; // number of odd elements
 
     // print odds array
-    cout << "Print Odds Only Array" << endl;
+    cout << "Printing Odds Only Array..." << endl;
     // Use function
     OddsOnly(A, n, e, m);
 
@@ -54,7 +135,7 @@ int main() {
 
     cout << "====[ end ]====" << endl;
     cout << "               " << endl;
-
+/*
     cout << "########" << endl;
     cout << "Problem Two" << endl;
     cout << "########" << endl;
@@ -107,6 +188,6 @@ int main() {
 
     // Display the values after swapping
     std::cout << "After swapping: num1 = " << num1 << ", num2 = " << num2 << std::endl;
-
+    */
 }
 
