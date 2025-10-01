@@ -38,7 +38,7 @@ void PrintElements(const int* arr, const int num_elements)
     for (int i = 0; i < num_elements; i++)
     {
         cout << arr[i];
-        if (!(i == num_elements - 1))
+        if (i + 1 < num_elements)
         {
             cout << ", ";
         }
