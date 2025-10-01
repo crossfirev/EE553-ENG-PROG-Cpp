@@ -1,4 +1,4 @@
-# HW02
+# HW03
 
 ## Project Structure
 
@@ -22,13 +22,13 @@ cmake -S . -B build
 cmake --build build
 
 # Run it
-./build/hw02
+./build/hw03
 ```
 
 #### Build and Run
 
 ```
-cmake -S . -B build && cmake --build build && ./build/hw02
+cmake -S . -B build && cmake --build build && ./build/hw03
 ```
 
 #### Debug
@@ -47,7 +47,7 @@ cmake -S . -B build
 cmake --build build --config Release
 
 # Run
-.\build\Release\hw02.exe
+.\build\Release\hw03.exe
 ```
 
 > ⚠️ Requires **CMake ≥ 3.10** and a C++17 compiler (e.g., g++, clang++, MSVC).
