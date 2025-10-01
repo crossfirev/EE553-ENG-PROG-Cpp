@@ -9,7 +9,19 @@ void ReadElements(int* arr, int num_elements)
     for(int i = 0; i < num_elements; i++)
     {
         cout << "Element " << i << ": ";
-        cin >> arr[i];
+
+        while(true)
+        {
+            cin >> arr[i];
+            if (!cin)
+            {
+                cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+            break;
+        }
     }
     cout << "-----\n";
 }
