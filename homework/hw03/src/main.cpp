@@ -221,6 +221,7 @@ int main()
     cout << "Problem Three" << endl;
     cout << "########" << endl;
 
+    int num1 = 0, num2 = 0;
     std::cout << "Enter the first integer: ";
     std::cin >> num1;
     std::cout << "Enter the second integer: ";
