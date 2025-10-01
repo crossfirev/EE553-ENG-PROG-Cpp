@@ -1,3 +1,20 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   9/30/2025
+ *
+ * Description:
+ *   This program demonstrates fundamental array and pointer operations in C++.
+ *   It provides the following functionality:
+ *     1. Reads a user-defined number of integers into a dynamically allocated array.
+ *     2. Prints the array in forward and reverse order.
+ *     3. Extracts and prints only the odd elements into a new dynamically allocated array.
+ *     4. Performs a linear search on a randomly generated fixed-size array.
+ *     5. Swaps the values of two integers using pointers.
+ *
+ *   The program also includes error handling for invalid user input and ensures
+ *   proper memory management with dynamic allocation and deallocation.
+ */
+
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
