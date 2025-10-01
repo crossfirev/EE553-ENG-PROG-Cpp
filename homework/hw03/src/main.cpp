@@ -102,8 +102,6 @@ void OddsOnly(const int* arr, const int num_elements, int*& return_arr, int& ret
             return_arr_idx++;
         }
     }
-
-    PrintElements(return_arr, return_num_odds);
 }
 
 void swapValues(int* num1, int* num2)
@@ -174,6 +172,7 @@ int main()
     cout << "Printing Odds Only Array..." << endl;
     // Use function
     OddsOnly(A, n, e, m);
+    PrintElements(e, m);
 
     // do not forget
     delete[] A; // Do not forget to deallocate dynamically allocated memory
