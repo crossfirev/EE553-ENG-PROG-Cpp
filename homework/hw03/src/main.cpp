@@ -87,7 +87,7 @@ int main()
 	cout << "########" << endl;
     cout << "Problem One" << endl;
     cout << "########" << endl;
-  // read how many number of elements you want to create
+    // read how many number of elements you want to create
     int n;
     
     while(true)
@@ -155,7 +155,7 @@ int main()
 
     cout << "====[ end ]====" << endl;
     cout << "               " << endl;
-/*
+
     cout << "########" << endl;
     cout << "Problem Two" << endl;
     cout << "########" << endl;
@@ -216,7 +216,7 @@ int main()
     {
         std::cout << "The value " << searchValue << " is not found in the array." << std::endl;
     }
-
+    
     cout << "########" << endl;
     cout << "Problem Three" << endl;
     cout << "########" << endl;
@@ -260,6 +260,5 @@ int main()
 
     // Display the values after swapping
     std::cout << "After swapping: num1 = " << num1 << ", num2 = " << num2 << std::endl;
-    */
 }
 
