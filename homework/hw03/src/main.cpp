@@ -29,6 +29,12 @@ void ReadElements(int* arr, const int num_elements)
 
 void PrintElements(const int* arr, const int num_elements)
 {
+    if (num_elements == 0)
+    {
+        cout << "Array is Empty.\n";
+        cout << "-----\n";
+        return;
+    }
     for (int i = 0; i < num_elements; i++)
     {
         cout << arr[i];
@@ -44,6 +50,12 @@ void PrintElements(const int* arr, const int num_elements)
 
 void PrintElementsRev(const int* arr, const int num_elements)
 {
+    if (num_elements == 0)
+    {
+        cout << "Array is Empty.\n";
+        cout << "-----\n";
+        return;
+    }
     for (int i = num_elements - 1; i >= 0; i--)
     {
         cout << arr[i];
