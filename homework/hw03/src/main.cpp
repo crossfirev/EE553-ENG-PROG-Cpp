@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void ReadElements(int* arr, const int& num_elements)
+void ReadElements(int* arr, const int num_elements)
 {
     cout << "-----\n";
     cout << "Taking in " << num_elements << " values. Continue entering until exhausted.\n";
@@ -27,7 +27,7 @@ void ReadElements(int* arr, const int& num_elements)
     cout << "-----\n";
 }
 
-void PrintElements(int* arr, const int& num_elements)
+void PrintElements(const int* arr, const int num_elements)
 {
     for (int i = 0; i < num_elements; i++)
     {
@@ -41,7 +41,8 @@ void PrintElements(int* arr, const int& num_elements)
     cout << "-----\n";
 }
 
-void PrintElementsRev(int* arr, const int& num_elements)
+
+void PrintElementsRev(const int* arr, const int num_elements)
 {
     for (int i = num_elements - 1; i >= 0; i--)
     {
@@ -55,7 +56,7 @@ void PrintElementsRev(int* arr, const int& num_elements)
     cout << "-----\n";
 }
 
-void OddsOnly(int* arr, const int& num_elements, int*& return_arr, int& return_num_odds)
+void OddsOnly(const int* arr, const int num_elements, int*& return_arr, int& return_num_odds)
 {
     cout << "\tCounting odd values...\n";
     int num_odds = 0;
