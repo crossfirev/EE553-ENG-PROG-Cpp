@@ -176,9 +176,22 @@ int main()
     PrintElements(arr, N);
     std::cout << std::endl;
 
-    int searchValue;
+
     std::cout << "Enter a value to search for: ";
-    std::cin >> searchValue;
+    int searchValue;
+    while(true)
+    {
+        std::cin >> searchValue;
+
+        if(!cin)
+        {
+            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        break;
+    }
 
     bool found = false;
     int index = -1; // To store the index of the found value
