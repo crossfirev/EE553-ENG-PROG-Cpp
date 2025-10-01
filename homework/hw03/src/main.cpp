@@ -134,7 +134,7 @@ int main()
 
         if (n <= 0)
         {
-            cout << "ERR: Invaild input. \n\t≤ 0 is not valid.\n";
+            cout << "ERR: Invalid input. \n\t≤ 0 is not valid.\n";
         }
         else
         {
