@@ -166,10 +166,11 @@ int main()
     int arr[N];
 
     // Initialize the array with random values (for demonstration)
-    for (int i = 0; i < N; i++) {
-        //write code to generate random number between 0-99 and fill in the array
+    for (int i = 0; i < N; i++)
+    {
+        arr[i] = rand() % 100;
     }
-
+    
     // Display the original array
     std::cout << "Original Array: ";
 
