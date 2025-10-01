@@ -16,7 +16,7 @@ void ReadElements(int* arr, int num_elements)
             cin >> arr[i];
             if (!cin)
             {
-                cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+                cerr << "ERR: Invalid input. \n\tPlease enter an integer number.\n";
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 continue;
@@ -105,7 +105,7 @@ int main()
 
         if (!cin)
         {
-            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cerr << "ERR: Invalid input. \n\tPlease enter an integer number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
@@ -187,7 +187,7 @@ int main()
 
         if (!cin)
         {
-            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cerr << "ERR: Invalid input. \n\tPlease enter an integer number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
@@ -231,7 +231,7 @@ int main()
 
         if (!cin)
         {
-            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cerr << "ERR: Invalid input. \n\tPlease enter an integer number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
@@ -246,7 +246,7 @@ int main()
 
         if (!cin)
         {
-            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cerr << "ERR: Invalid input. \n\tPlease enter an integer number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
