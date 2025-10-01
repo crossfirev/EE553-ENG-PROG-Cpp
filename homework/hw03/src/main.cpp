@@ -1,16 +1,17 @@
-#include <iostream>
 #include <math.h>
+
+#include <iostream>
 using namespace std;
 
 void ReadElements(int* arr, int num_elements)
 {
     cout << "-----\n";
     cout << "Taking in " << num_elements << " values. Continue entering until exhausted.\n";
-    for(int i = 0; i < num_elements; i++)
+    for (int i = 0; i < num_elements; i++)
     {
         cout << "Element " << i << ": ";
 
-        while(true)
+        while (true)
         {
             cin >> arr[i];
             if (!cin)
@@ -28,10 +29,10 @@ void ReadElements(int* arr, int num_elements)
 
 void PrintElements(int* arr, int num_elements)
 {
-    for(int i = 0; i < num_elements; i++)
+    for (int i = 0; i < num_elements; i++)
     {
         cout << arr[i];
-        if (!(i == num_elements-1))
+        if (!(i == num_elements - 1))
         {
             cout << ", ";
         }
@@ -42,7 +43,7 @@ void PrintElements(int* arr, int num_elements)
 
 void PrintElementsRev(int* arr, int num_elements)
 {
-    for(int i = num_elements-1; i >= 0; i--)
+    for (int i = num_elements - 1; i >= 0; i--)
     {
         cout << arr[i];
         if (!(i == 0))
@@ -58,9 +59,9 @@ void OddsOnly(int* arr, int num_elements, int*& return_arr, int& return_num_odds
 {
     cout << "\tCounting odd values...\n";
     int num_odds = 0;
-    for(int i = 0; i < num_elements; i++)
+    for (int i = 0; i < num_elements; i++)
     {
-        if(arr[i] % 2 != 0)
+        if (arr[i] % 2 != 0)
         {
             num_odds++;
         }
@@ -70,11 +71,11 @@ void OddsOnly(int* arr, int num_elements, int*& return_arr, int& return_num_odds
     cout << "\tAllocating a new array based on the number of odd values in the original array...\n";
     return_arr = new int[num_odds];
     int return_arr_idx = 0;
-    for(int i = 0; i < num_elements; i++)
+    for (int i = 0; i < num_elements; i++)
     {
-        if(arr[i] % 2 != 0)
+        if (arr[i] % 2 != 0)
         {
-            return_arr[return_arr_idx] = arr[i]; 
+            return_arr[return_arr_idx] = arr[i];
             return_arr_idx++;
         }
     }
@@ -89,19 +90,19 @@ void swapValues(int* num1, int* num2)
     *num2 = temp;
 }
 
-int main() 
+int main()
 {
-	cout << "########" << endl;
+    cout << "########" << endl;
     cout << "Problem One" << endl;
     cout << "########" << endl;
     // read how many number of elements you want to create
     int n;
-    
-    while(true)
+
+    while (true)
     {
         cout << "Please enter number of elements: ";
         cin >> n;
-        
+
         if (!cin)
         {
             cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
@@ -110,7 +111,7 @@ int main()
             continue;
         }
 
-        if(n <= 0)
+        if (n <= 0)
         {
             cout << "ERR: Invaild input. \n\t≤ 0 is not valid.\n";
         }
@@ -120,7 +121,6 @@ int main()
         }
     }
 
-
     // Use function ReadElements() to read array (arr) from the user with given number of elements
     // define new empty array dynamically with n number as int *arr = new int[n];
     // write your code here
@@ -128,25 +128,21 @@ int main()
 
     ReadElements(A, n);
 
-
     // Use function PrintElements() that can print the entered array
     // write your code here
     cout << "Printing Array..." << endl;
     PrintElements(A, n);
-
 
     // Use function PrintElementsRev() that can print the array in reverse order
     // write your code here
     cout << "Printing Reverse Array..." << endl;
     PrintElementsRev(A, n);
 
-
     // Use function OddsOnly that can print only the odd elements of the user array
     // define a null pointer *e to use it with OddsOnly function
     // and int m equal zero
     // write your code here
     // you can use NULL here or nullptr for *e
-
 
     int* e = nullptr; // null pointer
     int m = 0; // number of odd elements
@@ -157,8 +153,8 @@ int main()
     OddsOnly(A, n, e, m);
 
     // do not forget
-    delete [] A; // Do not forget to deallocate dynamically allocated memory
-    delete [] e; // same as above
+    delete[] A; // Do not forget to deallocate dynamically allocated memory
+    delete[] e; // same as above
 
     cout << "====[ end ]====" << endl;
     cout << "               " << endl;
@@ -168,8 +164,8 @@ int main()
     cout << "########" << endl;
     // Read only this part of the problem
 
-    //define the size of the array and the array
-	const int N = 10; // Size of the array
+    // define the size of the array and the array
+    const int N = 10; // Size of the array
     int arr[N];
 
     // Initialize the array with random values (for demonstration)
@@ -177,20 +173,19 @@ int main()
     {
         arr[i] = rand() % 100;
     }
-    
+
     // Display the original array
     std::cout << "Original Array: ";
     PrintElements(arr, N);
     std::cout << std::endl;
 
-
     std::cout << "Enter a value to search for: ";
     int searchValue;
-    while(true)
+    while (true)
     {
         std::cin >> searchValue;
 
-        if(!cin)
+        if (!cin)
         {
             cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
             cin.clear();
@@ -204,10 +199,10 @@ int main()
     int index = -1; // To store the index of the found value
 
     // Linear search algorithm
-    //implement linear search algorithms
-    for(int i = 0; i < N; i++)
+    // implement linear search algorithms
+    for (int i = 0; i < N; i++)
     {
-        if(arr[i] == searchValue)
+        if (arr[i] == searchValue)
         {
             found = true;
             index = i;
@@ -223,18 +218,18 @@ int main()
     {
         std::cout << "The value " << searchValue << " is not found in the array." << std::endl;
     }
-    
+
     cout << "########" << endl;
     cout << "Problem Three" << endl;
     cout << "########" << endl;
 
     int num1 = 0, num2 = 0;
     std::cout << "Enter the first integer: ";
-    while(true)
+    while (true)
     {
         std::cin >> num1;
 
-        if(!cin)
+        if (!cin)
         {
             cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
             cin.clear();
@@ -245,11 +240,11 @@ int main()
     }
 
     std::cout << "Enter the second integer: ";
-    while(true)
+    while (true)
     {
         std::cin >> num2;
 
-        if(!cin)
+        if (!cin)
         {
             cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
             cin.clear();
@@ -262,10 +257,9 @@ int main()
     std::cout << "Before swapping: num1 = " << num1 << ", num2 = " << num2 << std::endl;
 
     // Call the swapValues function to swap the values of num1 and num2 using pointers
-    //define swap value function before main function
+    // define swap value function before main function
     swapValues(&num1, &num2);
 
     // Display the values after swapping
     std::cout << "After swapping: num1 = " << num1 << ", num2 = " << num2 << std::endl;
 }
-
