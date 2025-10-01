@@ -197,11 +197,23 @@ int main()
     int index = -1; // To store the index of the found value
 
     // Linear search algorithm
-   //implement linear search algorithms
+    //implement linear search algorithms
+    for(int i = 0; i < N; i++)
+    {
+        if(arr[i] == searchValue)
+        {
+            found = true;
+            index = i;
+            break;
+        }
+    }
 
-    if (found) {
-        std::cout << "The value " << searchValue << " is found at index " << index << std::endl;
-    } else {
+    if (found)
+    {
+        std::cout << "The value " << searchValue << " is found at index " << index << "." << std::endl;
+    }
+    else
+    {
         std::cout << "The value " << searchValue << " is not found in the array." << std::endl;
     }
 
