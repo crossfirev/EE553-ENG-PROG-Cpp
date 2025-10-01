@@ -169,6 +169,7 @@ int main()
     int arr[N];
 
     // Initialize the array with random values (for demonstration)
+    srand(time(NULL));
     for (int i = 0; i < N; i++)
     {
         arr[i] = rand() % 100;
