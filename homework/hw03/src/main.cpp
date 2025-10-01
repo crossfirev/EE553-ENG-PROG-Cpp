@@ -82,7 +82,17 @@ void OddsOnly(const int* arr, const int num_elements, int*& return_arr, int& ret
     return_num_odds = num_odds; // Return the number of odds by reference
 
     cout << "\tAllocating a new array based on the number of odd values in the original array...\n";
-    return_arr = new int[num_odds];
+
+    if (num_odds == 0)
+    {
+        return_arr = nullptr;
+        return_num_odds = 0;
+        return;
+    }
+    else
+    {
+        return_arr = new int[num_odds];
+    }
     int return_arr_idx = 0;
     for (int i = 0; i < num_elements; i++)
     {
