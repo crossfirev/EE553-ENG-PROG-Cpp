@@ -82,6 +82,13 @@ void OddsOnly(int* arr, int num_elements, int*& return_arr, int& return_num_odds
     PrintElements(return_arr, return_num_odds);
 }
 
+void swapValues(int* num1, int* num2)
+{
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+
 int main() 
 {
 	cout << "########" << endl;
