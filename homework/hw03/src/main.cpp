@@ -173,7 +173,7 @@ int main()
     
     // Display the original array
     std::cout << "Original Array: ";
-
+    PrintElements(arr, N);
     std::cout << std::endl;
 
     int searchValue;
