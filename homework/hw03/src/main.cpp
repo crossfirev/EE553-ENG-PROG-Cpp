@@ -223,9 +223,34 @@ int main()
 
     int num1 = 0, num2 = 0;
     std::cout << "Enter the first integer: ";
-    std::cin >> num1;
+    while(true)
+    {
+        std::cin >> num1;
+
+        if(!cin)
+        {
+            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        break;
+    }
+
     std::cout << "Enter the second integer: ";
-    std::cin >> num2;
+    while(true)
+    {
+        std::cin >> num2;
+
+        if(!cin)
+        {
+            cerr << "ERR: Invalid input. \n\tPlease enter a integer number.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        break;
+    }
 
     std::cout << "Before swapping: num1 = " << num1 << ", num2 = " << num2 << std::endl;
 
