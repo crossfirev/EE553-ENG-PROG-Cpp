@@ -48,7 +48,6 @@ void PrintElements(const int* arr, const int num_elements)
     cout << "-----\n";
 }
 
-
 void PrintElementsRev(const int* arr, const int num_elements)
 {
     if (num_elements == 0)
