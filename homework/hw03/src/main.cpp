@@ -1,6 +1,7 @@
-#include <math.h>
-
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
+#include <limits>
 using namespace std;
 
 void ReadElements(int* arr, const int num_elements)
