@@ -34,6 +34,7 @@ Closes #ISSUE_NUMBER
 - [ ] Precision/formatting requirements met (if applicable)
 - [ ] Code is modular, clear, and commented
 - [ ] Tested with provided input data (if applicable)
+- [ ] Add author note to all source and header files
 - [ ] Ready for final submission (Canvas/GitHub)
 
 ---
