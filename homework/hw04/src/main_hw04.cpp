@@ -49,7 +49,7 @@ public:
     // your function should return the value
     // use calc_juliandate as the function name
     // write your code here
-    double calc_juliandate()
+    double calc_juliandate() const
     {
         int a = (14 - month) / 12;
         int m = month + 12 * a - 3;
