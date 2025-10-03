@@ -1,6 +1,7 @@
 # HW04
 
 ## Project Layout
+
 ```
 .
 └── homework/
@@ -18,12 +19,14 @@ The executable will be created in `homework/hw04/build/` and will be named `hw04
 ## Build & Run
 
 ### Option A: VS Code (repo root, with .vscode/tasks.json .vscode/launch.json)
+
 From the repo root (`EE553-ENG-PROG-Cpp/`):
 
-- **Run:** `Tasks: Run Task → run: hw04`  
-- **Debug:** pick **Debug hw04** and press **F5**  
+- **Run:** `Tasks: Run Task → run: hw04`
+- **Debug:** pick **Debug hw04** and press **F5**
 
 ### Option B: CMake CLI (inside `homework/hw04`)
+
 ```
 cd homework/hw04
 
@@ -38,17 +41,20 @@ cmake --build build
 ```
 
 One-liner:
+
 ```
 cd homework/hw04 && cmake -S . -B build && cmake --build build && ./build/hw04 cd ../..
 ```
 
 **Switch build type** (optional):
+
 ```
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 ```
 
 ### Windows (MSVC)
+
 ```
 cd homework\hw04
 cmake -S . -B build
@@ -65,6 +71,7 @@ cmake --build build --config Debug
 Sometimes you just want to compile without any CMake configuration.
 
 ### Linux / macOS / WSL
+
 ```
 cd homework/hw04
 g++ -std=c++17 -Wall -Wextra -Wpedantic -I include src/*.cpp -o hw04
@@ -72,6 +79,7 @@ g++ -std=c++17 -Wall -Wextra -Wpedantic -I include src/*.cpp -o hw04
 ```
 
 ### Windows (MSVC `cl`)
+
 ```
 cd homework\hw04
 cl /std:c++17 /W4 /EHsc /I include src\*.cpp /Fehw01.exe
@@ -83,6 +91,7 @@ cl /std:c++17 /W4 /EHsc /I include src\*.cpp /Fehw01.exe
 ---
 
 ## Clean
+
 ```
 # From homework/hw04
 rm -rf build
@@ -93,5 +102,6 @@ rmdir /s /q build
 ---
 
 ## Notes
+
 - The target name = folder name (`hw04` → `hw04` binary).
 - Keep `.cpp` files in `src/` and headers in `include/`.
