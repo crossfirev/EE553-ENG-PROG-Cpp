@@ -1,3 +1,36 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   10/03/2025
+ *
+ * Description:
+ *   Implements a simple JulianDate class and a test driver.
+ *
+ *   Features:
+ *     • Public data members for calendar date/time: year, month, day, hour, min, sec.
+ *     • Non-default constructor to initialize from explicit Y/M/D h:m:s.
+ *     • Default constructor that initializes to the current UTC time (via gmtime).
+ *     • calc_juliandate() computes the Julian Day Number (JDN) as a double,
+ *       including the fractional day from h:m:s.
+ *     • diff_calc_juliandate(const JulianDate&) returns the difference in days
+ *       between two JulianDate instances.
+ *     • operator<< streams the stored Julian number.
+ *
+ *   The main() function:
+ *     • Constructs sample dates (e.g., 1776-07-04, 2000-12-31, 2007-02-08/09).
+ *     • Prints each date’s Julian value with high precision.
+ *     • Computes and prints the difference between two dates both manually
+ *       and via the class method.
+ *
+ *   Notes / Assumptions:
+ *     • Uses the proleptic Gregorian calendar for all historical dates.
+ *     • Time zone handling is not performed; default ctor uses UTC “now”.
+ *     • Fractional day mapping: 00:00:00 → +0.0, 12:00:00 → +0.5.
+ *
+ *   References:
+ *     • c-jump Julian date homework reference.
+ *     • AAVSO JD calculator (for spot-checking results).
+ */
+
 #include <time.h>
 
 #include <iostream>

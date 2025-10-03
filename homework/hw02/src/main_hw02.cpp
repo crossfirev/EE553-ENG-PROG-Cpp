@@ -1,3 +1,33 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   10/03/2025
+ *
+ * Description:
+ *   Multi-part program implementing three small utilities:
+ *
+ *   1) Primality Check (Problem One)
+ *      - Implements a simple trial-division `isPrime(int)` function.
+ *      - Prints formatted results via a templated helper `printIsPrimeResult`.
+ *
+ *   2) Robot Path Conversion (Problem Two)
+ *      - Reads polar coordinates (r, θ in degrees) from `./robotpath.dat`.
+ *      - Converts to radians, then to Cartesian (x, y) using cos/sin.
+ *      - Re-derives the heading from (x, y) via `atan2` and wraps to [0, 2π) with `angleWrap`.
+ *      - Reports each line with consistent floating-point formatting.
+ *
+ *   3) Wind Chill Calculator (Problem Three)
+ *      - Prompts user for air velocity (mph) and air temperature (°F).
+ *      - Validates inputs (handles bad `cin`, applies NWS domain constraints).
+ *      - Computes wind chill using: 35.74 + 0.6215T − 35.75V^0.16 + 0.4275T·V^0.16.
+ *      - Displays the result with fixed precision.
+ *
+ *   Notable Details:
+ *     • Uses constants for π and file path.
+ *     • Graceful error handling: input sanitization and exceptions for invalid wind-chill domain.
+ *     • Fixed decimal formatting for readable numeric output.
+ *     • Minimal dependencies; optional headers for future modularization are commented out.
+ */
+
 #include <cfloat>
 #include <cmath> // double sin(double), double cos(double)
 #include <cstdlib>
