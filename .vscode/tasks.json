@@ -1,0 +1,234 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // ---------------- hw01 ----------------
+    {
+      "label": "cmake: configure hw01",
+      "type": "shell",
+      "command": "cmake -S homework/hw01 -B homework/hw01/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw01",
+      "type": "shell",
+      "command": "cmake --build homework/hw01/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw01",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw01",
+      "type": "shell",
+      "command": "./homework/hw01/build/hw01",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw01",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw02 ----------------
+    {
+      "label": "cmake: configure hw02",
+      "type": "shell",
+      "command": "cmake -S homework/hw02 -B homework/hw02/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw02",
+      "type": "shell",
+      "command": "cmake --build homework/hw02/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw02",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw02",
+      "type": "shell",
+      "command": "./homework/hw02/build/hw02",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw02",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw03 ----------------
+    {
+      "label": "cmake: configure hw03",
+      "type": "shell",
+      "command": "cmake -S homework/hw03 -B homework/hw03/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw03",
+      "type": "shell",
+      "command": "cmake --build homework/hw03/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw03",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw03",
+      "type": "shell",
+      "command": "./homework/hw03/build/hw03",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw03",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw04 ----------------
+    {
+      "label": "cmake: configure hw04",
+      "type": "shell",
+      "command": "cmake -S homework/hw04 -B homework/hw04/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw04",
+      "type": "shell",
+      "command": "cmake --build homework/hw04/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw04",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw04",
+      "type": "shell",
+      "command": "./homework/hw04/build/hw04",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw04",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw05 ----------------
+    {
+      "label": "cmake: configure hw05",
+      "type": "shell",
+      "command": "cmake -S homework/hw05 -B homework/hw05/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw05",
+      "type": "shell",
+      "command": "cmake --build homework/hw05/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw05",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw05",
+      "type": "shell",
+      "command": "./homework/hw05/build/hw05",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw05",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw06 ----------------
+    {
+      "label": "cmake: configure hw06",
+      "type": "shell",
+      "command": "cmake -S homework/hw06 -B homework/hw06/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw06",
+      "type": "shell",
+      "command": "cmake --build homework/hw06/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw06",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw06",
+      "type": "shell",
+      "command": "./homework/hw06/build/hw06",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw06",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw07 ----------------
+    {
+      "label": "cmake: configure hw07",
+      "type": "shell",
+      "command": "cmake -S homework/hw07 -B homework/hw07/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw07",
+      "type": "shell",
+      "command": "cmake --build homework/hw07/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw07",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw07",
+      "type": "shell",
+      "command": "./homework/hw07/build/hw07",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw07",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw08 ----------------
+    {
+      "label": "cmake: configure hw08",
+      "type": "shell",
+      "command": "cmake -S homework/hw08 -B homework/hw08/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw08",
+      "type": "shell",
+      "command": "cmake --build homework/hw08/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw08",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw08",
+      "type": "shell",
+      "command": "./homework/hw08/build/hw08",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw08",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw09 ----------------
+    {
+      "label": "cmake: configure hw09",
+      "type": "shell",
+      "command": "cmake -S homework/hw09 -B homework/hw09/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw09",
+      "type": "shell",
+      "command": "cmake --build homework/hw09/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw09",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw09",
+      "type": "shell",
+      "command": "./homework/hw09/build/hw09",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw09",
+      "problemMatcher": []
+    },
+
+    // ---------------- hw10 ----------------
+    {
+      "label": "cmake: configure hw10",
+      "type": "shell",
+      "command": "cmake -S homework/hw10 -B homework/hw10/build -G \"Unix Makefiles\" -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake: build hw10",
+      "type": "shell",
+      "command": "cmake --build homework/hw10/build --config Debug -- -j",
+      "dependsOn": "cmake: configure hw10",
+      "problemMatcher": []
+    },
+    {
+      "label": "run: hw10",
+      "type": "shell",
+      "command": "./homework/hw10/build/hw10",
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": "cmake: build hw10",
+      "problemMatcher": []
+    }
+  ]
+}

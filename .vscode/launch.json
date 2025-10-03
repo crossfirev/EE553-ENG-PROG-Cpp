@@ -1,0 +1,175 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug hw01",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw01/build/hw01",
+      "cwd": "${workspaceFolder}/homework/hw01",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw01",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw02",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw02/build/hw02",
+      "cwd": "${workspaceFolder}/homework/hw02",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw02",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw03",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw03/build/hw03",
+      "cwd": "${workspaceFolder}/homework/hw03",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw03",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw04",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw04/build/hw04",
+      "cwd": "${workspaceFolder}/homework/hw04",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw04",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw05",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw05/build/hw05",
+      "cwd": "${workspaceFolder}/homework/hw05",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw05",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw06",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw06/build/hw06",
+      "cwd": "${workspaceFolder}/homework/hw06",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw06",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw07",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw07/build/hw07",
+      "cwd": "${workspaceFolder}/homework/hw07",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw07",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw08",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw08/build/hw08",
+      "cwd": "${workspaceFolder}/homework/hw08",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw08",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw09",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw09/build/hw09",
+      "cwd": "${workspaceFolder}/homework/hw09",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw09",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    },
+    {
+      "name": "Debug hw10",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/homework/hw10/build/hw10",
+      "cwd": "${workspaceFolder}/homework/hw10",
+      "MIMode": "gdb",
+      "stopAtEntry": false,
+      "preLaunchTask": "cmake: build hw10",
+      "environment": [
+        { "name": "ASAN_OPTIONS", "value": "detect_leaks=0" },
+        { "name": "LSAN_OPTIONS", "value": "detect_leaks=0" }
+      ],
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "pretty", "ignoreFailures": true }
+      ]
+    }
+  ]
+}
