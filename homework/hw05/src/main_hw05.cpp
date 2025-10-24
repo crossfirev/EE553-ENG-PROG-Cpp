@@ -1,11 +1,10 @@
+#include <cmath>
+#include <fstream>
 #include <iostream>
+#include <random> // use this to generate random number
+#include <sstream>
 #include <string>
 #include <vector> // use C++ STL vector with our struct
-#include <cmath>
-#include <random> // use this to generate random number
-#include <fstream>
-#include <sstream>
-
 
 using namespace std;
 
@@ -17,22 +16,22 @@ struct Vec3d
     double x, y, z;
 };
 
-ostream &operator << (ostream &strm, const Vec3d &obj)
+ostream& operator<<(ostream& strm, const Vec3d& obj)
 {
-    strm << "x: " << obj.x << ", y: " << obj.y << ", z: "<< obj.z;
+    strm << "x: " << obj.x << ", y: " << obj.y << ", z: " << obj.z;
     return strm;
 }
 
 // define the Body class here
 
-    // Overload << operator to print out body information as
-    // name, orbit, mass, pos (Vec3d overload), v (Vec3d overload), a(Vec3d overload)
-    // don't forget to use friend keyword here for overloading function
-    // main program show an example of the output <-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------
-    // write your code here
+// Overload << operator to print out body information as
+// name, orbit, mass, pos (Vec3d overload), v (Vec3d overload), a(Vec3d overload)
+// don't forget to use friend keyword here for overloading function
+// main program show an example of the output <-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------
+// write your code here
 
-
-class Body {
+class Body
+{
 private:
     string bodyName;
     string orbitName;
@@ -42,18 +41,18 @@ private:
     Vec3d position_m;
     Vec3d velocity_mps;
     Vec3d acceleration_mps2;
-public:
 
+public:
     // Allows SolarSystem to access Body's private variables
     friend class SolarSystem;
 
     //  Default Constructor, assigns all variables to null-esque values.
     Body()
     {
-        
+
         bodyName = "none";
         orbitName = "none";
-        
+
         position_m.x = position_m.y = position_m.z = 0;
         velocity_mps.x = velocity_mps.y = velocity_mps.z = 0;
         acceleration_mps2.x = acceleration_mps2.y = acceleration_mps2.z = 0;
@@ -62,25 +61,25 @@ public:
     //  Non-default Constructor, assigns all variables via input arguments.
     Body(string in_bodyName, string in_orbitName, double in_mass_kg, Vec3d in_position_m, Vec3d in_velocity_mps, Vec3d in_acceleration_mps2)
     {
-        
+
         bodyName = in_bodyName;
         orbitName = in_orbitName;
         mass_kg = in_mass_kg;
-        
+
         position_m = in_position_m;
 
         velocity_mps = in_velocity_mps;
 
         acceleration_mps2 = in_acceleration_mps2;
     }
-    
-    friend ostream &operator << (ostream &strm, const Body &obj)
+
+    friend ostream& operator<<(ostream& strm, const Body& obj)
     {
-        strm << "Body Name: " << obj.bodyName 
-             << "\nOrbit Name: " << obj.orbitName 
-             << "\nMass: " << obj.mass_kg 
-             << "\nPosition: " << obj.position_m 
-             << "\nVelocity: " << obj.velocity_mps 
+        strm << "Body Name: " << obj.bodyName
+             << "\nOrbit Name: " << obj.orbitName
+             << "\nMass: " << obj.mass_kg
+             << "\nPosition: " << obj.position_m
+             << "\nVelocity: " << obj.velocity_mps
              << "\nAcceleration: " << obj.acceleration_mps2;
         return strm;
     }
@@ -96,7 +95,8 @@ public:
 // --------------------------------------------
 // SolarSystem class variable will be private vector of type class Body called bodies
 
-class SolarSystem {
+class SolarSystem
+{
 private:
     vector<Body> bodies;
     double sunMass_kg;
@@ -132,21 +132,19 @@ public:
         string line;
         getline(file, line); // Skips header line of file
 
-
-
-        while(getline(file, line))
+        while (getline(file, line))
         {
             istringstream iss(line);
 
-            iss >> bodyName 
-                >> orbitName 
-                >> mass_kg 
-                >> diameter_m 
-                >> perihelion_m 
-                >> aphelion_m 
-                >> orbitalPeriod_days 
-                >> rotationalPeriod_hours 
-                >> axialTilt_deg 
+            iss >> bodyName
+                >> orbitName
+                >> mass_kg
+                >> diameter_m
+                >> perihelion_m
+                >> aphelion_m
+                >> orbitalPeriod_days
+                >> rotationalPeriod_hours
+                >> axialTilt_deg
                 >> orbitalInclination_deg;
 
             if (bodyName == "Sun")
@@ -154,7 +152,7 @@ public:
                 sunMass_kg = mass_kg;
                 cout << "========================================================\n";
             }
-            
+
             orbitalRadius_m = (perihelion_m + aphelion_m) / 2; // Approximate radius of an elliptical orbit.
 
             orbitalVelocity_mps = sqrtl(G * mass_kg / orbitalRadius_m);
@@ -162,19 +160,19 @@ public:
 
             cout << bodyName << "\n------\n";
             cout << "\n  Orbits: " << orbitName << "\n\n";
-            cout << "\tMetric\t\t\t| "                 << "Value\t"                << "\t| Unit\n"
-                << "\t-----------------------------------------------\n"  
-                << "\tOrbital Radius:\t\t| "          << orbitalRadius_m           << "\t| m\n" 
-                << "\tOrbital Velocity:\t| "          << orbitalVelocity_mps         << "\t| m/s\n" 
-                << "\tOrbital Acceleration:\t| "      << orbitalAcceleration_mps2     << "\t| m/s^2\n";
+            cout << "\tMetric\t\t\t| " << "Value\t" << "\t| Unit\n"
+                 << "\t-----------------------------------------------\n"
+                 << "\tOrbital Radius:\t\t| " << orbitalRadius_m << "\t| m\n"
+                 << "\tOrbital Velocity:\t| " << orbitalVelocity_mps << "\t| m/s\n"
+                 << "\tOrbital Acceleration:\t| " << orbitalAcceleration_mps2 << "\t| m/s^2\n";
             cout << "========================================================\n";
         }
 
         srand(0);
-        double x = rand() * 10.0; 
-        double y = rand() * 10.0; 
-        double z = rand() * 10.0; 
-        
+        double x = rand() * 10.0;
+        double y = rand() * 10.0;
+        double z = rand() * 10.0;
+
         /*
         double posVectorMagnitude = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
         double angle = rand() * 2 * PI;
@@ -197,7 +195,7 @@ public:
         };
 
         Body current_body = Body(bodyName, orbitName, mass_kg);
-        */ 
+        */
 
         // ABOVE IS WIP AND PROBABLY WRONG.
     }
@@ -207,12 +205,8 @@ public:
 
     // open ifstream file
 
-
-    
-
     // define variable you want to read some info will be saved and some will be used in calculation
     // don't forget to skip first line since it contain title only
-
 
     // read file line by line
     // you will need to save Sun mass to use in planet velocity calculation
@@ -247,7 +241,6 @@ public:
 
     // don't forget to close the open .dat file after reading the complete file
 
-
     // add the value of accelerations in stepForward
     // this function take variable bodies inside Solarsystem and int acc and use it with function setAccelerations
     // function should be void
@@ -255,10 +248,10 @@ public:
 
     // overload SolarSystem object, so it loops through list of bodies and cout it
     // this function also depend on the overload of Body class
-
 };
 
-int main() {
+int main()
+{
     cout << "########" << endl;
     cout << "Main Problem" << endl;
     cout << "########" << endl;
@@ -275,13 +268,11 @@ int main() {
     // Write your fullpath here to location where solarsystem.dat exist.
     SolarSystem s(".././src/solarsystem.dat");
 
-
     cout << s;
     // After reading the file print calculation done on Solarsystem
     // overload << operator in SolarSystem class to print out variables as follows
     //    Mercury, Sun, 3.3e+23, 8, 10, 4, -2147483648, -2147483648, 0, -1981977299, 1152671425, 0
     //    Venus, Sun, 4.87e+24, 9, 1, 3, -2147483648, -2147483648, 0, 1021382959, -679782887, 0
-
 
     cout << "=============" << endl;
 
@@ -295,5 +286,4 @@ int main() {
     cout << "====[ end ]====" << endl;
     cout << "               " << endl;
     return 0;
-
 }
