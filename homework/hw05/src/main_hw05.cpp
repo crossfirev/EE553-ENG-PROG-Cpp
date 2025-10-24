@@ -30,16 +30,66 @@ ostream &operator << (ostream &strm, const Vec3d &obj)
     // main program show an example of the output <-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------
     // write your code here
 
-    // create setAccelerations() function that change the acceleration of planet in SolarSystem
-    // this function should loop through Solarsystem object and change acceleration of each body planet
-    // the input is vector of Body and integer acceleration
-    // for function type use it as: static auto setAccelerations()
-    // write your code here
 
-    // make sure that SolarSystem class is a friend to Body()
+class Body {
+private:
+    string bodyName;
+    string orbitName;
 
+    double mass_kg;
+
+    Vec3d position_m;
+    Vec3d velocity_mps;
+    Vec3d acceleration_mps2;
+public:
+
+    // Allows SolarSystem to access Body's private variables
+    friend class SolarSystem;
+
+    //  Default Constructor, assigns all variables to null-esque values.
+    Body()
+    {
+        
+        bodyName = "none";
+        orbitName = "none";
+        
+        position_m.x = position_m.y = position_m.z = 0;
+        velocity_mps.x = velocity_mps.y = velocity_mps.z = 0;
+        acceleration_mps2.x = acceleration_mps2.y = acceleration_mps2.z = 0;
+    }
+
+    //  Non-default Constructor, assigns all variables via input arguments.
+    Body(string in_bodyName, string in_orbitName, double in_mass_kg, Vec3d in_position_m, Vec3d in_velocity_mps, Vec3d in_acceleration_mps2)
+    {
+        
+        bodyName = in_bodyName;
+        orbitName = in_orbitName;
+        mass_kg = in_mass_kg;
+        
+        position_m = in_position_m;
+
+        velocity_mps = in_velocity_mps;
+
+        acceleration_mps2 = in_acceleration_mps2;
+    }
+    
+    friend ostream &operator << (ostream &strm, const Body &obj)
+    {
+        strm << "Body Name: " << obj.bodyName 
+             << "\nOrbit Name: " << obj.orbitName 
+             << "\nMass: " << obj.mass_kg 
+             << "\nPosition: " << obj.position_m 
+             << "\nVelocity: " << obj.velocity_mps 
+             << "\nAcceleration: " << obj.acceleration_mps2;
+        return strm;
+    }
 };
 
+// create setAccelerations() function that change the acceleration of body in SolarSystem
+// this function should loop through Solarsystem object and change acceleration of each body body
+// the input is vector of Body and integer acceleration
+// for function type use it as: static auto setAccelerations()
+// write your code here
 
 // ----- Implement class solar system here ----
 // --------------------------------------------
