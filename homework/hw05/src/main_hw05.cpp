@@ -8,14 +8,9 @@
 
 using namespace std;
 
-// Define constant double here:
-// 1. for G = universal gravitational constant equal 6.674E-11 or 6.674*10^(-11)
-// 2. for pi = 3.14159265358979323846
-// write your code here
+const double G = pow(6.674, -11);
+const double PI = 3.14159265358979323846;
 
-
-// ----- Use 3d vector struct -----
-// ------------------------------------
 struct Vec3d
 {
     int x, y, z;
