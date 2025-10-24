@@ -207,18 +207,7 @@ public:
     // open ifstream file
 
 
-    //check if file exist or not
-    if (solarfile.is_open()){
-
-        cout << "File is open and ready" << '\n';
-        cout << " " << '\n';
-//            return; // use this for program testing to check file is open only without reading the data
-    }else{
-        cout << "File not found!" << '\n';
-        cout << "check if path is .././src/***" << '\n';
-        cout << " " << '\n';
-        return;
-    }
+    
 
     // define variable you want to read some info will be saved and some will be used in calculation
     // don't forget to skip first line since it contain title only
@@ -238,7 +227,7 @@ public:
     // For x, y, and z of Vec3d pos"position" generate random number between 0 and 10
     // look up how to use rand function
 
-    // we will calculate random angle between 0 and 2*pi
+    // we will calculate random angle between 0 and 2*PI
     // look up how to use uniform_real_distribution
     // check out https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
 
