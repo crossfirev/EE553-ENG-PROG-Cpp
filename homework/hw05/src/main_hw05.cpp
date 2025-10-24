@@ -4,6 +4,7 @@
 #include <cmath>
 #include <random> // use this to generate random number
 #include <fstream>
+#include <sstream>
 
 
 using namespace std;
