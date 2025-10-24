@@ -16,38 +16,18 @@ struct Vec3d
     double x, y, z;
 };
 
-// overload << operator for struct Vec3d
-// when use << so it prints like this: x_value, y_value, z_value
-// write your code here
+ostream &operator << (ostream &strm, const Vec3d &obj)
+{
+    strm << "x: " << obj.x << ", y: " << obj.y << ", z: "<< obj.z;
+    return strm;
+}
 
-
-// ----- Implement class body here ----
-// ------------------------------------
-// Body class will have private variables to save following information:
-//  planet name: string
-//  orbit name: string
-//  the planet mass: double
-//  position  using Vec3d: Vec3d
-//  velocity  using Vec3d: Vec3d
-//  acceleration using Vec3d: Vec3d
-
-class Body {
-// define the Body variable here
-// name, orbit, mass (double), pos (Vec3d overload), v (Vec3d overload), a(Vec3d overload)
-
-    // default body constructor set all variables to zero and string to "none"
-    // name it Body()
-    // write your code here
-
-    //non-default constructor to initialize body information.
-    // name same as default constructor
-    // name, orbit, mass, pos (Vec3d overload), v (Vec3d overload), a(Vec3d overload)
-    // write your code here
+// define the Body class here
 
     // Overload << operator to print out body information as
     // name, orbit, mass, pos (Vec3d overload), v (Vec3d overload), a(Vec3d overload)
     // don't forget to use friend keyword here for overloading function
-    // main program show an example of the output
+    // main program show an example of the output <-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------
     // write your code here
 
     // create setAccelerations() function that change the acceleration of planet in SolarSystem
