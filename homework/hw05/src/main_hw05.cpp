@@ -96,10 +96,110 @@ public:
 // SolarSystem class variable will be private vector of type class Body called bodies
 
 class SolarSystem {
-    // Solar have one variable that is vector of type Body called bodies
-    // all planet Body you read should save in this vector
+private:
+    vector<Body> bodies;
+    double sunMass_kg;
+
+public:
+    SolarSystem(string inFileName)
+    {
+        ifstream file;
+        file.open(inFileName);
+
+        if (!file.is_open())
+        {
+            cout << "File not found!" << '\n';
+            cout << "check if path is .././src/***" << '\n';
+            cout << " " << '\n';
+        }
+
+        string bodyName;
+        string orbitName;
+        double mass_kg;
+        double diameter_m;
+        double perihelion_m;
+        double aphelion_m;
+        double orbitalPeriod_days;
+        double rotationalPeriod_hours;
+        double axialTilt_deg;
+        double orbitalInclination_deg;
+
+        double orbitalRadius_m;
+        double orbitalVelocity_mps;
+        double orbitalAcceleration_mps2;
+
+        string line;
+        getline(file, line); // Skips header line of file
 
 
+
+        while(getline(file, line))
+        {
+            istringstream iss(line);
+
+            iss >> bodyName 
+                >> orbitName 
+                >> mass_kg 
+                >> diameter_m 
+                >> perihelion_m 
+                >> aphelion_m 
+                >> orbitalPeriod_days 
+                >> rotationalPeriod_hours 
+                >> axialTilt_deg 
+                >> orbitalInclination_deg;
+
+            if (bodyName == "Sun")
+            {
+                sunMass_kg = mass_kg;
+                cout << "========================================================\n";
+            }
+            
+            orbitalRadius_m = (perihelion_m + aphelion_m) / 2; // Approximate radius of an elliptical orbit.
+
+            orbitalVelocity_mps = sqrtl(G * mass_kg / orbitalRadius_m);
+            orbitalAcceleration_mps2 = pow(orbitalVelocity_mps, 2) / orbitalRadius_m;
+
+            cout << bodyName << "\n------\n";
+            cout << "\n  Orbits: " << orbitName << "\n\n";
+            cout << "\tMetric\t\t\t| "                 << "Value\t"                << "\t| Unit\n"
+                << "\t-----------------------------------------------\n"  
+                << "\tOrbital Radius:\t\t| "          << orbitalRadius_m           << "\t| m\n" 
+                << "\tOrbital Velocity:\t| "          << orbitalVelocity_mps         << "\t| m/s\n" 
+                << "\tOrbital Acceleration:\t| "      << orbitalAcceleration_mps2     << "\t| m/s^2\n";
+            cout << "========================================================\n";
+        }
+
+        srand(0);
+        double x = rand() * 10.0; 
+        double y = rand() * 10.0; 
+        double z = rand() * 10.0; 
+        
+        /*
+        double posVectorMagnitude = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
+        double angle = rand() * 2 * PI;
+
+        Vec3d position = {x, y, z};
+
+
+        Vec3d velocity = {
+            posVectorMagnitude * cos(angle),
+            posVectorMagnitude * sin(angle),
+            0
+        };
+
+        double velVectorMagnitude = sqrt(pow(velocity.x, 2) + pow(velocity.y, 2) + pow(velocity.z, 2));
+
+        Vec3d acceleration = {
+            velVectorMagnitude * cos(angle),
+            velVectorMagnitude * sin(angle),
+            0
+        };
+
+        Body current_body = Body(bodyName, orbitName, mass_kg);
+        */ 
+
+        // ABOVE IS WIP AND PROBABLY WRONG.
+    }
     // SolarSystem main function should take the location of .dat file
     // and read the complete file
     // SolarSystem()
