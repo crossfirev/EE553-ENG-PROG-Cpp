@@ -1,0 +1,107 @@
+# HW05
+
+## Project Layout
+
+```
+.
+└── homework/
+    └── hw05/
+        ├── include/
+        ├── src/
+        │   └── main_hw01.cpp
+        └── CMakeLists.txt
+```
+
+The executable will be created in `homework/hw05/build/` and will be named `hw05`.
+
+---
+
+## Build & Run
+
+### Option A: VS Code (repo root, with .vscode/tasks.json .vscode/launch.json)
+
+From the repo root (`EE553-ENG-PROG-Cpp/`):
+
+- **Run:** `Tasks: Run Task → run: hw05`
+- **Debug:** pick **Debug hw05** and press **F5**
+
+### Option B: CMake CLI (inside `homework/hw05`)
+
+```
+cd homework/hw05
+
+# Configure (Debug by default)
+cmake -S . -B build
+
+# Build
+cmake --build build
+
+# Run
+./build/hw05
+```
+
+One-liner:
+
+```
+cd homework/hw05 && cmake -S . -B build && cmake --build build && ./build/hw05 cd ../..
+```
+
+**Switch build type** (optional):
+
+```
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+### Windows (MSVC)
+
+```
+cd homework\hw05
+cmake -S . -B build
+cmake --build build --config Debug
+.\build\Debug\hw05.exe
+```
+
+> Requires **CMake ≥ 3.23** and a C++17 compiler (g++, clang++, or MSVC).
+
+---
+
+## Minimal “No-CMake” Build (for quick tests)
+
+Sometimes you just want to compile without any CMake configuration.
+
+### Linux / macOS / WSL
+
+```
+cd homework/hw05
+g++ -std=c++17 -Wall -Wextra -Wpedantic -I include src/*.cpp -o hw05
+./hw05
+```
+
+### Windows (MSVC `cl`)
+
+```
+cd homework\hw05
+cl /std:c++17 /W4 /EHsc /I include src\*.cpp /Fehw01.exe
+.\hw05.exe
+```
+
+> ⚠️ This bypasses CMake completely. Use only for quick builds; it won’t include future options/libs defined in CMake.
+
+---
+
+## Clean
+
+```
+# From homework/hw05
+rm -rf build
+# Windows
+rmdir /s /q build
+```
+
+---
+
+## Notes
+
+- The target name = folder name (`hw05` → `hw05` binary).
+- Keep `.cpp` files in `src/` and headers in `include/`.
