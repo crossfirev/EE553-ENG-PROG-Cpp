@@ -151,6 +151,7 @@ private:
 public:
     SolarSystem(const string& inFileName)
     {
+        // START: read in data file line; 1 line = 1 body
         ifstream file;
         file.open(inFileName);
 
