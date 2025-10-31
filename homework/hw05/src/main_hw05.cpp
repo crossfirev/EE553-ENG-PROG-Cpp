@@ -60,7 +60,7 @@ public:
     }
 
     //  Non-default Constructor, assigns all variables via input arguments.
-    Body(string in_bodyName, string in_orbitName, double in_mass_kg, Vec3d in_position_m, Vec3d in_velocity_mps, Vec3d in_acceleration_mps2)
+    Body(const string& in_bodyName, const string& in_orbitName, double in_mass_kg, Vec3d in_position_m, Vec3d in_velocity_mps, Vec3d in_acceleration_mps2)
     {
 
         bodyName = in_bodyName;
