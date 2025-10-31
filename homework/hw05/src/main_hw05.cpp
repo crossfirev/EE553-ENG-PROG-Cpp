@@ -9,7 +9,7 @@
 
 using namespace std;
 
-const double G = pow(6.674, -11);
+const double G = 6.674e-11; // m^3 kg^-1 s^-2
 const double PI = 3.14159265358979323846;
 
 struct Vec3d
