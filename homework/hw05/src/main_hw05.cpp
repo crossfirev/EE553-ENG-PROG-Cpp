@@ -181,6 +181,11 @@ public:
         getline(file, line); // Skips header line of file
         cout << "========================================================\n";
 
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_real_distribution<> dist(0.0, 10.0);
+        std::uniform_real_distribution<> angle_dist(0.0, 2 * PI);
+
         while (getline(file, line))
         {
             istringstream iss(line);
@@ -227,11 +232,6 @@ public:
             // END: read in data file line; 1 line = 1 body
 
             // START: initialize position, velocity and acceleration of the body
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::uniform_real_distribution<> dist(0.0, 10.0);
-            std::uniform_real_distribution<> angle_dist(0.0, 2 * PI);
-
             Vec3d position = { 0, 0, 0 };
             Vec3d velocity = { 0, 0, 0 };
             Vec3d acceleration = { 0, 0, 0 };
