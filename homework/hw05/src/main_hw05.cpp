@@ -4,6 +4,7 @@
 #include <random> // use this to generate random number
 #include <sstream>
 #include <string>
+#include <tuple>
 #include <vector> // use C++ STL vector with our struct
 
 using namespace std;
@@ -94,6 +95,18 @@ public:
 // ----- Implement class solar system here ----
 // --------------------------------------------
 // SolarSystem class variable will be private vector of type class Body called bodies
+
+tuple<bool, double> searchForMass(const vector<Body>& in_bodies, const string& in_bodyName)
+{
+    for (const Body& body : in_bodies)
+    {
+        if (in_bodyName == body.getBodyName())
+        {
+            return { true, body.getBodyMass() };
+        }
+    }
+    return { false, 0 };
+}
 
 class SolarSystem
 {
