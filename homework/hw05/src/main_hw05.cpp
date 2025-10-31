@@ -310,62 +310,19 @@ public:
                     acceleration
                 )
             );
-        }
-        
-        for(const Body& body : bodies)
-        {
-            cout << body << endl;
+            // END: initialize position, velocity and acceleration of the body
         }
     }
-    // SolarSystem main function should take the location of .dat file
-    // and read the complete file
-    // SolarSystem()
 
-    // open ifstream file
+    void stepForward(Vec3d in_acceleration_mps2)
+    {
+        Body::setAcceleration(bodies, in_acceleration_mps2);
+    }
 
-    // define variable you want to read some info will be saved and some will be used in calculation
-    // don't forget to skip first line since it contain title only
+    friend ostream& operator<<(ostream& stream, const vector<Body>& in_bodies)
+    {
 
-    // read file line by line
-    // you will need to save Sun mass to use in planet velocity calculation
-    // only calculate the orbiting velocity for planet orbiting sun ,e.g., if you read Io moon that orbiting Venus you skip the calculation
-    // print out planet: name  Orbit: Sun
-    // print out the orbit velocity
-    // print out centripetal acceleration
-    // All calculation is simplified
-    // check out this wiki https://en.wikipedia.org/wiki/Circular_orbit
-    // 	v = sqrt( G"universal gravitational" * mass of the sun /radius )
-    // approximation of radius of your orbit = (Perihelion  + Aphelion) /2
-
-    // For x, y, and z of Vec3d pos"position" generate random number between 0 and 10
-    // look up how to use rand function
-
-    // we will calculate random angle between 0 and 2*PI
-    // look up how to use uniform_real_distribution
-    // check out https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
-
-    // For x, y, and z of Vec3d velocity will be
-    // x = r cos(ang)  ===> x*v"the calculated velocity"
-    // y = r sin(ang) ====> y*v
-    // z = zero
-
-    // For x, y, and z of Vec3d acceleration, where a = v^2 / r,  will be
-    // x = r cos(ang)  ===> x*a"the calculated velocity"
-    // y = r sin(ang) ====> y*a
-    // z = zero
-
-    // Before reading the next planet create temp Body class object and save needed information
-    // .push_back() the Body into the SolarSystem bodies class
-
-    // don't forget to close the open .dat file after reading the complete file
-
-    // add the value of accelerations in stepForward
-    // this function take variable bodies inside Solarsystem and int acc and use it with function setAccelerations
-    // function should be void
-    // stepForward()
-
-    // overload SolarSystem object, so it loops through list of bodies and cout it
-    // this function also depend on the overload of Body class
+    }
 };
 
 int main()
@@ -374,16 +331,6 @@ int main()
     cout << "Main Problem" << endl;
     cout << "########" << endl;
 
-    // SolarSystem s should read the file to print and do calculation
-    // when you creat object Solarsystem s('.dat path') it read the file and print only planets orbiting the sun  as shown below
-    //    body name:Jupiter orbit: Sun
-    //    orbital velocity is: 13058
-    //    centripetal acceleration: 0.000219013
-    //    body name:Saturn orbit: Sun
-    //    orbital velocity is: 9623.1
-    //    centripetal acceleration: 6.45977e-05
-    //    ==================
-    // Write your fullpath here to location where solarsystem.dat exist.
     string dat_file_path = "solarsystem.dat";
 
     try
@@ -395,19 +342,6 @@ int main()
         cerr << e.what() << '\n';
         return 1;
     }
-    // After reading the file print calculation done on Solarsystem
-    // overload << operator in SolarSystem class to print out variables as follows
-    //    Mercury, Sun, 3.3e+23, 8, 10, 4, -2147483648, -2147483648, 0, -1981977299, 1152671425, 0
-    //    Venus, Sun, 4.87e+24, 9, 1, 3, -2147483648, -2147483648, 0, 1021382959, -679782887, 0
-
-    // cout << "=============" << endl;
-
-    // // add acceleration equal 100
-    // // Use function .stepForward() on object Solarsystem to set the new acceleration
-    // int acc = 5000;
-    // s.stepForward(acc);
-    // // print out the new solarsystem
-    // cout << s;
 
     cout << "====[ end ]====" << endl;
     cout << "               " << endl;
