@@ -98,15 +98,15 @@ public:
         acceleration_mps2 = in_acceleration_mps2;
     }
 
-    friend ostream& operator<<(ostream& strm, const Body& obj)
+    friend ostream& operator<<(ostream& stream, const Body& body)
     {
-        strm << "Body Name: " << obj.bodyName
-             << "\nOrbit Name: " << obj.orbitName
-             << "\nMass: " << obj.mass_kg
-             << "\nPosition: " << obj.position_m
-             << "\nVelocity: " << obj.velocity_mps
-             << "\nAcceleration: " << obj.acceleration_mps2;
-        return strm;
+        stream << "Body Name: " << body.bodyName
+             << "\nOrbit Name: " << body.orbitName
+             << "\nMass: " << body.mass_kg
+             << "\nPosition: " << body.position_m
+             << "\nVelocity: " << body.velocity_mps
+             << "\nAcceleration: " << body.acceleration_mps2;
+        return stream;
     }
 
     string getBodyName() const
