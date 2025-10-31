@@ -153,6 +153,7 @@ public:
 
         string line;
         getline(file, line); // Skips header line of file
+        cout << "========================================================\n";
 
         while (getline(file, line))
         {
@@ -169,16 +170,25 @@ public:
                 >> axialTilt_deg
                 >> orbitalInclination_deg;
 
-            if (bodyName == "Sun")
+            if (bodyName == "Sun") // Establish the sun.
             {
                 sunMass_kg = mass_kg;
-                cout << "========================================================\n";
             }
 
-            orbitalRadius_m = (perihelion_m + aphelion_m) / 2; // Approximate radius of an elliptical orbit.
-
-            orbitalVelocity_mps = sqrtl(G * mass_kg / orbitalRadius_m);
-            orbitalAcceleration_mps2 = pow(orbitalVelocity_mps, 2) / orbitalRadius_m;
+            auto [found, parent_mass_kg] = searchForMass(bodies, orbitName);
+            if (found)
+            {
+                double mu = G * (parent_mass_kg + mass_kg);
+                orbitalRadius_m = (perihelion_m + aphelion_m) / 2.0; // Approximate radius of an elliptical orbit.
+                orbitalVelocity_mps = sqrt(mu / orbitalRadius_m);
+                orbitalAcceleration_mps2 = pow(orbitalVelocity_mps, 2) / orbitalRadius_m;
+            }
+            else
+            {
+                orbitalRadius_m = 0;
+                orbitalVelocity_mps = 0;
+                orbitalAcceleration_mps2 = 0;
+            }
 
             cout << bodyName << "\n------\n";
             cout << "\n  Orbits: " << orbitName << "\n\n";
