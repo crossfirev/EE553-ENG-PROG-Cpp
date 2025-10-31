@@ -267,7 +267,14 @@ public:
                     mass_kg,
                     position,
                     velocity,
-                    acceleration));
+                    acceleration
+                )
+            );
+        }
+        
+        for(const Body& body : bodies)
+        {
+            cout << body << endl;
         }
     }
     // SolarSystem main function should take the location of .dat file
