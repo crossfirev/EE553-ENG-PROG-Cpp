@@ -252,8 +252,8 @@ public:
                 };
 
                 acceleration = {
-                    -orbitalAcceleration_mps2 * sin(orbital_phase),
                     -orbitalAcceleration_mps2 * cos(orbital_phase),
+                    -orbitalAcceleration_mps2 * sin(orbital_phase),
                     0
                 };
             }
