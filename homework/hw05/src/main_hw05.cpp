@@ -124,7 +124,7 @@ private:
     double sunMass_kg;
 
 public:
-    SolarSystem(string inFileName)
+    SolarSystem(const string& inFileName)
     {
         ifstream file;
         file.open(inFileName);
