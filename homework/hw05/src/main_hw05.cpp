@@ -31,7 +31,7 @@ struct Vec3d
         z = in_z;
     }
 
-    Vec3d operator+(const Vec3d &vec)
+    Vec3d operator+(const Vec3d &vec) const
     {
         return Vec3d(
             x + vec.x,
@@ -39,23 +39,20 @@ struct Vec3d
             z + vec.z
         );
     }
+    Vec3d& operator+=(const Vec3d& vec)
+    { 
+        x += vec.x; 
+        y += vec.y; 
+        z += vec.z; 
+        return *this; 
+    }
+
+    friend ostream& operator<<(ostream& stream, const Vec3d& vector)
+    {
+        stream << "x: " << vector.x << ", y: " << vector.y << ", z: " << vector.z;
+        return stream;
+    }
 };
-
-// Vec3d << overload
-ostream& operator<<(ostream& stream, const Vec3d& object)
-{
-    stream << "x: " << object.x << ", y: " << object.y << ", z: " << object.z;
-    return stream;
-}
-
-
-// define the Body class here
-
-// Overload << operator to print out body information as
-// name, orbit, mass, pos (Vec3d overload), v (Vec3d overload), a(Vec3d overload)
-// don't forget to use friend keyword here for overloading function
-// main program show an example of the output <-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------<-----------------
-// write your code here
 
 class Body
 {
