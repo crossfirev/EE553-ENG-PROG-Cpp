@@ -206,7 +206,7 @@ public:
                 sunMass_kg = mass_kg;
             }
 
-            auto [found, parent_mass_kg] = searchForMass(bodies, orbitName);
+            auto [found, parent_mass_kg] = searchForMass(bodies, orbitName); // Assumes the parent orbits preceed the child bodies.
             if (found)
             {
                 double mu = G * (parent_mass_kg + mass_kg);
