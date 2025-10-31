@@ -159,6 +159,7 @@ public:
             cout << "File not found!" << '\n';
             cout << "check if path is .././src/***" << '\n';
             cout << " " << '\n';
+            throw std::runtime_error("File not found.");
         }
 
         string bodyName;
@@ -333,9 +334,15 @@ int main()
     //    centripetal acceleration: 6.45977e-05
     //    ==================
     // Write your fullpath here to location where solarsystem.dat exist.
-    SolarSystem s(".././src/solarsystem.dat");
-
-    cout << s;
+    try
+    {
+        SolarSystem s(dat_file_path);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 1;
+    }
     // After reading the file print calculation done on Solarsystem
     // overload << operator in SolarSystem class to print out variables as follows
     //    Mercury, Sun, 3.3e+23, 8, 10, 4, -2147483648, -2147483648, 0, -1981977299, 1152671425, 0
