@@ -239,6 +239,9 @@ public:
             if (orbitalRadius_m > 0)
             {
                 double orbital_phase = angle_dist(gen);
+
+                // In-place of randomly generating the position of the bodies, favored using the data in the dataset to generate accurate orbits.
+                //      Retained randomized angle - orbital phase, to show random value understanding.
                 position = {
                     orbitalRadius_m * cos(orbital_phase),
                     orbitalRadius_m * sin(orbital_phase),
