@@ -212,7 +212,7 @@ public:
                 double mu = G * (parent_mass_kg + mass_kg);
                 orbitalRadius_m = (perihelion_m + aphelion_m) / 2.0; // Approximate radius of an elliptical orbit.
                 orbitalVelocity_mps = sqrt(mu / orbitalRadius_m);
-                orbitalAcceleration_mps2 = pow(orbitalVelocity_mps, 2) / orbitalRadius_m;
+                orbitalAcceleration_mps2 = orbitalVelocity_mps * orbitalVelocity_mps / orbitalRadius_m;
             }
             else
             {
