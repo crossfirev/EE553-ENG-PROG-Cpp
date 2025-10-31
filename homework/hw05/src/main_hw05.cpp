@@ -1,6 +1,7 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 #include <random> // use this to generate random number
 #include <sstream>
 #include <string>
@@ -153,6 +154,27 @@ private:
     vector<Body> bodies;
     double sunMass_kg;
 
+    // Auxilury Functions
+    static void print_row(ostream& os, const string& label, double value, const char* unit)
+    {
+        os << "  "  << left  << setw(26) << label
+           << " | " << right << setw(12) << scientific << setprecision(6) << value
+           << " | " << left  << setw(8)  << unit
+           << defaultfloat << '\n';
+    }
+
+    inline void print_header(ostream& os)
+    {
+        os  << "  "  << left  << setw(26) << "Metric"
+            << " | " << right << setw(12) << "Value"
+            << " | " << left  << setw(8)  << "Unit" << '\n';
+    }
+
+    inline void print_rule(ostream& os)
+    {
+        os << "  " << string(26 + 3 + 12 + 3 + 8, '-') << '\n';
+    }
+
 public:
     SolarSystem(const string& inFileName)
     {
@@ -227,13 +249,34 @@ public:
                 orbitalAcceleration_mps2 = 0;
             }
 
-            cout << bodyName << "\n------\n";
-            cout << "\n  Orbits: " << orbitName << "\n\n";
-            cout << "\tMetric\t\t\t| " << "Value\t" << "\t| Unit\n"
-                 << "\t-----------------------------------------------\n"
-                 << "\tOrbital Radius:\t\t| " << orbitalRadius_m << "\t| m\n"
-                 << "\tOrbital Velocity:\t| " << orbitalVelocity_mps << "\t| m/s\n"
-                 << "\tOrbital Acceleration:\t| " << orbitalAcceleration_mps2 << "\t| m/s^2\n";
+
+            cout << bodyName << "\n------\n\n";
+            cout << "  Orbits: " << orbitName << "\n\n";
+
+            print_header(cout);
+            print_rule(cout);
+
+            print_row(cout, "Body Mass:",              mass_kg,                "kg");
+            print_row(cout, "Body Diameter:",          diameter_m,             "m");
+            print_row(cout, "Body Rotational Period:", rotationalPeriod_hours, "hr");
+            print_row(cout, "Body Axial Tilt:",        axialTilt_deg,          "deg");
+
+            if (bodyName != "Sun")
+            {
+                print_rule(cout);
+
+                print_row(cout, "Orbital Perihelion:",     perihelion_m,           "m");
+                print_row(cout, "Orbital Aphelion:",       aphelion_m,             "m");
+                print_row(cout, "Orbital Period:",         orbitalPeriod_days,     "day");
+                print_row(cout, "Orbital Inclination:",    orbitalInclination_deg, "deg");
+
+                print_rule(cout);
+
+                print_row(cout, "Orbital Radius:",         orbitalRadius_m,         "m");
+                print_row(cout, "Orbital Velocity:",       orbitalVelocity_mps,     "m/s");
+                print_row(cout, "Orbital Acceleration:",   orbitalAcceleration_mps2,"m/s^2");   
+            }
+
             cout << "========================================================\n";
             // END: read in data file line; 1 line = 1 body
 
