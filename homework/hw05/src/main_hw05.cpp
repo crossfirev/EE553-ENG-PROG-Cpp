@@ -54,9 +54,9 @@ public:
         bodyName = "none";
         orbitName = "none";
 
-        position_m.x = position_m.y = position_m.z = 0;
-        velocity_mps.x = velocity_mps.y = velocity_mps.z = 0;
-        acceleration_mps2.x = acceleration_mps2.y = acceleration_mps2.z = 0;
+        position_m = { 0, 0, 0 };
+        velocity_mps = { 0, 0, 0 };
+        acceleration_mps2 = { 0, 0, 0 };
     }
 
     //  Non-default Constructor, assigns all variables via input arguments.
