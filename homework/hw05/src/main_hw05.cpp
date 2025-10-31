@@ -118,6 +118,11 @@ public:
     {
         return mass_kg;
     }
+
+    void setAcceleration(double in_x_acceleration, double in_y_acceleration, double in_z_acceleration)
+    {
+        acceleration_mps2 = Vec3d { in_x_acceleration, in_y_acceleration, in_z_acceleration };
+    }
 };
 
 // create setAccelerations() function that change the acceleration of body in SolarSystem
