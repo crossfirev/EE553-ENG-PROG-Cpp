@@ -84,6 +84,15 @@ public:
              << "\nAcceleration: " << obj.acceleration_mps2;
         return strm;
     }
+
+    string getBodyName() const
+    {
+        return bodyName;
+    }
+    double getBodyMass() const
+    {
+        return mass_kg;
+    }
 };
 
 // create setAccelerations() function that change the acceleration of body in SolarSystem
