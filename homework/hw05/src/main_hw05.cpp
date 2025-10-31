@@ -118,21 +118,14 @@ public:
         return mass_kg;
     }
 
-    void setAcceleration(double in_x_acceleration, double in_y_acceleration, double in_z_acceleration)
+    static void setAcceleration(vector<Body>& in_bodies, const Vec3d in_acceleration_mps2)
     {
-        acceleration_mps2 = Vec3d { in_x_acceleration, in_y_acceleration, in_z_acceleration };
+        for(Body& body : in_bodies)
+        {
+            body.acceleration_mps2 = in_acceleration_mps2;
+        }
     }
 };
-
-// create setAccelerations() function that change the acceleration of body in SolarSystem
-// this function should loop through Solarsystem object and change acceleration of each body body
-// the input is vector of Body and integer acceleration
-// for function type use it as: static auto setAccelerations()
-// write your code here
-
-// ----- Implement class solar system here ----
-// --------------------------------------------
-// SolarSystem class variable will be private vector of type class Body called bodies
 
 tuple<bool, double> searchForMass(const vector<Body>& in_bodies, const string& in_bodyName)
 {
