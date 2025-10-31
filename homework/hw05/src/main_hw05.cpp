@@ -198,38 +198,48 @@ public:
                  << "\tOrbital Velocity:\t| " << orbitalVelocity_mps << "\t| m/s\n"
                  << "\tOrbital Acceleration:\t| " << orbitalAcceleration_mps2 << "\t| m/s^2\n";
             cout << "========================================================\n";
+            // END: read in data file line; 1 line = 1 body
+
+            // START: initialize position, velocity and acceleration of the body
+            std::random_device rd;
+            std::mt19937 gen(rd());
+            std::uniform_real_distribution<> dist(0.0, 10.0);
+            std::uniform_real_distribution<> angle_dist(0.0, 2 * PI);
+
+            Vec3d position = { 0, 0, 0 };
+            Vec3d velocity = { 0, 0, 0 };
+            Vec3d acceleration = { 0, 0, 0 };
+
+            if (orbitalRadius_m > 0)
+            {
+                double orbital_phase = angle_dist(gen);
+                position = {
+                    orbitalRadius_m * cos(orbital_phase),
+                    orbitalRadius_m * sin(orbital_phase),
+                    dist(gen)
+                };
+
+                velocity = {
+                    -(orbitalVelocity_mps * sin(orbital_phase)),
+                    orbitalVelocity_mps * cos(orbital_phase),
+                    0,
+                };
+
+                acceleration = {
+                    -orbitalAcceleration_mps2 * sin(orbital_phase),
+                    -orbitalAcceleration_mps2 * cos(orbital_phase),
+                    0
+                };
+            }
+            bodies.push_back(
+                Body(
+                    bodyName,
+                    orbitName,
+                    mass_kg,
+                    position,
+                    velocity,
+                    acceleration));
         }
-
-        srand(0);
-        double x = rand() * 10.0;
-        double y = rand() * 10.0;
-        double z = rand() * 10.0;
-
-        /*
-        double posVectorMagnitude = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
-        double angle = rand() * 2 * PI;
-
-        Vec3d position = {x, y, z};
-
-
-        Vec3d velocity = {
-            posVectorMagnitude * cos(angle),
-            posVectorMagnitude * sin(angle),
-            0
-        };
-
-        double velVectorMagnitude = sqrt(pow(velocity.x, 2) + pow(velocity.y, 2) + pow(velocity.z, 2));
-
-        Vec3d acceleration = {
-            velVectorMagnitude * cos(angle),
-            velVectorMagnitude * sin(angle),
-            0
-        };
-
-        Body current_body = Body(bodyName, orbitName, mass_kg);
-        */
-
-        // ABOVE IS WIP AND PROBABLY WRONG.
     }
     // SolarSystem main function should take the location of .dat file
     // and read the complete file
