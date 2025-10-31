@@ -178,7 +178,7 @@ public:
             cout << "File not found!" << '\n';
             cout << "check if path is .././src/***" << '\n';
             cout << " " << '\n';
-            throw std::runtime_error("File not found.");
+            throw runtime_error("File not found.");
         }
 
         string bodyName;
@@ -200,10 +200,10 @@ public:
         getline(file, line); // Skips header line of file
         cout << "========================================================\n";
 
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::uniform_real_distribution<> dist(0.0, 10.0);
-        std::uniform_real_distribution<> angle_dist(0.0, 2 * PI);
+        random_device rd;
+        mt19937 gen(rd());
+        uniform_real_distribution<> dist(0.0, 10.0);
+        uniform_real_distribution<> angle_dist(0.0, 2 * PI);
 
         while (getline(file, line))
         {
@@ -390,9 +390,9 @@ int main()
     {
         SolarSystem s(dat_file_path);
     }
-    catch(const std::exception& e)
+    catch(const exception& e)
     {
-        std::cerr << e.what() << '\n';
+        cerr << e.what() << '\n';
         return 1;
     }
     // After reading the file print calculation done on Solarsystem
