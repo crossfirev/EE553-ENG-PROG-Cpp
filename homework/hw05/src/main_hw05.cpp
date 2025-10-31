@@ -361,14 +361,14 @@ int main()
     //    Mercury, Sun, 3.3e+23, 8, 10, 4, -2147483648, -2147483648, 0, -1981977299, 1152671425, 0
     //    Venus, Sun, 4.87e+24, 9, 1, 3, -2147483648, -2147483648, 0, 1021382959, -679782887, 0
 
-    cout << "=============" << endl;
+    // cout << "=============" << endl;
 
-    // add acceleration equal 100
-    // Use function .stepForward() on object Solarsystem to set the new acceleration
-    int acc = 5000;
-    s.stepForward(acc);
-    // print out the new solarsystem
-    cout << s;
+    // // add acceleration equal 100
+    // // Use function .stepForward() on object Solarsystem to set the new acceleration
+    // int acc = 5000;
+    // s.stepForward(acc);
+    // // print out the new solarsystem
+    // cout << s;
 
     cout << "====[ end ]====" << endl;
     cout << "               " << endl;
