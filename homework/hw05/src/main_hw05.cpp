@@ -15,9 +15,30 @@ const double PI = 3.14159265358979323846;
 struct Vec3d
 {
     double x, y, z;
-};
 
-ostream& operator<<(ostream& strm, const Vec3d& obj)
+    Vec3d()
+    {
+        x = 0;
+        y = 0;
+        z = 0;
+    }
+
+    Vec3d(double in_x, double in_y, double in_z)
+    {
+        x = in_x;
+        y = in_y;
+        z = in_z;
+    }
+
+    Vec3d operator+(const Vec3d &vec)
+    {
+        return Vec3d(
+            x + vec.x,
+            y + vec.y,
+            z + vec.z
+        );
+    }
+};
 {
     strm << "x: " << obj.x << ", y: " << obj.y << ", z: " << obj.z;
     return strm;
