@@ -334,6 +334,8 @@ int main()
     //    centripetal acceleration: 6.45977e-05
     //    ==================
     // Write your fullpath here to location where solarsystem.dat exist.
+    string dat_file_path = "solarsystem.dat";
+
     try
     {
         SolarSystem s(dat_file_path);
