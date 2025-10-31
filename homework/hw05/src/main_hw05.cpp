@@ -39,10 +39,14 @@ struct Vec3d
         );
     }
 };
+
+// Vec3d << overload
+ostream& operator<<(ostream& stream, const Vec3d& object)
 {
-    strm << "x: " << obj.x << ", y: " << obj.y << ", z: " << obj.z;
-    return strm;
+    stream << "x: " << object.x << ", y: " << object.y << ", z: " << object.z;
+    return stream;
 }
+
 
 // define the Body class here
 
