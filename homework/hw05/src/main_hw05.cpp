@@ -383,16 +383,26 @@ public:
                     0
                 };
             }
-            bodies.push_back(
-                Body(
-                    bodyName,
-                    orbitName,
-                    mass_kg,
-                    position,
-                    velocity,
-                    acceleration
-                )
+            Body b(
+                bodyName,
+                orbitName,
+                mass_kg,
+                position,
+                velocity,
+                acceleration
             );
+            b.diameter_m = diameter_m;
+            b.perihelion_m = perihelion_m;
+            b.aphelion_m = aphelion_m;
+            b.orbitalPeriod_days = orbitalPeriod_days;
+            b.rotationalPeriod_hours = rotationalPeriod_hours;
+            b.axialTilt_deg = axialTilt_deg;
+            b.orbitalInclination_deg = orbitalInclination_deg;
+            b.orbitalRadius_m_scalar = orbitalRadius_m;
+            b.orbitalVelocity_mps_scalar = orbitalVelocity_mps;
+            b.orbitalAcceleration_mps2_scalar = orbitalAcceleration_mps2;
+
+            bodies.emplace_back(move(b));
             // END: initialize position, velocity and acceleration of the body
         }
     }
