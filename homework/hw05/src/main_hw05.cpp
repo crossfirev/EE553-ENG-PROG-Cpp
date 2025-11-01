@@ -63,8 +63,44 @@
 
 using namespace std;
 
-const double G = 6.674e-11; // m^3 kg^-1 s^-2
-const double PI = 3.14159265358979323846;
+// Auxiliary Functions
+static void print_vector(ostream& os, const string& vector_name, double vector_x, double vector_y, double vector_z)
+{
+    os << "  "  << left  << setw(26) << vector_name
+        << " | " << right << setw(14) << scientific << setprecision(6) << vector_x
+        << " | " << right << setw(14) << scientific << setprecision(6) << vector_y
+        << " | " << right << setw(14) << scientific << setprecision(6) << vector_z
+        << defaultfloat << '\n';
+}
+inline void print_vector_header(ostream& os)
+{
+    os  << "  "  << left  << setw(26) << "Vector"
+        << " | " << right << setw(14) << "X"
+        << " | " << right << setw(14) << "Y"
+        << " | " << right << setw(14) << "Z" << '\n';
+}
+inline void print_vector_rule(ostream& os)
+{
+    // total width = 26 + 3 + (14+3)*3 = 77
+    os << "  " << string(26 + 3 + (14 + 3) * 3, '-') << '\n';
+}
+static void print_metric_row(ostream& os, const string& label, double value, const char* unit)
+{
+    os  << "  "  << left  << setw(26) << label
+        << " | " << left  << setw(12) << scientific << setprecision(6) << value
+        << " | " << left  << setw(8)  << unit
+        << defaultfloat << '\n';
+}
+inline void print_metric_header(ostream& os)
+{
+    os  << "  "  << left  << setw(26) << "Metric"
+        << " | " << left  << setw(12) << "Value"
+        << " | " << left  << setw(8)  << "Unit" << '\n';
+}
+inline void print_rule(ostream& os)
+{
+    os << "  " << string(26 + 3 + 12 + 3 + 8, '-') << '\n';
+}
 
 struct Vec3d
 {
@@ -186,27 +222,6 @@ private:
     vector<Body> bodies;
     std::unordered_map<std::string,double> body_masses;
     double sunMass_kg;
-
-    // Auxilury Functions
-    static void print_row(ostream& os, const string& label, double value, const char* unit)
-    {
-        os << "  "  << left  << setw(26) << label
-           << " | " << right << setw(12) << scientific << setprecision(6) << value
-           << " | " << left  << setw(8)  << unit
-           << defaultfloat << '\n';
-    }
-
-    inline void print_header(ostream& os)
-    {
-        os  << "  "  << left  << setw(26) << "Metric"
-            << " | " << right << setw(12) << "Value"
-            << " | " << left  << setw(8)  << "Unit" << '\n';
-    }
-
-    inline void print_rule(ostream& os)
-    {
-        os << "  " << string(26 + 3 + 12 + 3 + 8, '-') << '\n';
-    }
 
 public:
     SolarSystem(const string& inFileName)
