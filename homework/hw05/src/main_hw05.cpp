@@ -198,12 +198,58 @@ public:
 
     friend ostream& operator<<(ostream& stream, const Body& body)
     {
-        stream << "Body Name: " << body.bodyName
-             << "\nOrbit Name: " << body.orbitName
-             << "\nMass: " << body.mass_kg
-             << "\nPosition: " << body.position_m
-             << "\nVelocity: " << body.velocity_mps
-             << "\nAcceleration: " << body.acceleration_mps2;
+        stream << body.bodyName << "\n------\n\n";
+        stream << "  Orbits: " << body.orbitName << "\n\n";
+
+        print_vector_rule(stream);
+        print_vector_header(stream);
+        print_vector_rule(stream);
+        
+        print_vector(stream, 
+            "Position", 
+            body.position_m.x, 
+            body.position_m.y, 
+            body.position_m.z
+        );
+        print_vector(stream, 
+            "Velocity", 
+            body.velocity_mps.x, 
+            body.velocity_mps.y, 
+            body.velocity_mps.z
+        );
+        print_vector(stream, 
+            "Acceleration", 
+            body.acceleration_mps2.x, 
+            body.acceleration_mps2.y, 
+            body.acceleration_mps2.z
+        );
+        print_vector_rule(stream);
+
+        print_metric_header(stream);
+        print_rule(stream);
+
+        print_metric_row(stream, "Body Mass:",                 body.mass_kg,                          "kg");
+        print_metric_row(stream, "Body Diameter:",             body.diameter_m,                       "m");
+        print_metric_row(stream, "Body Rotational Period:",    body.rotationalPeriod_hours,           "hr");
+        print_metric_row(stream, "Body Axial Tilt:",           body.axialTilt_deg,                    "deg");
+
+        if (body.bodyName != "Sun")
+        {
+            print_rule(stream);
+
+            print_metric_row(stream, "Orbital Perihelion:",    body.perihelion_m,                     "m");
+            print_metric_row(stream, "Orbital Aphelion:",      body.aphelion_m,                       "m");
+            print_metric_row(stream, "Orbital Period:",        body.orbitalPeriod_days,               "day");
+            print_metric_row(stream, "Orbital Inclination:",   body.orbitalInclination_deg,           "deg");
+
+            print_rule(stream);
+
+            print_metric_row(stream, "Orbital Radius:",        body.orbitalRadius_m_scalar,           "m");
+            print_metric_row(stream, "Orbital Velocity:",      body.orbitalVelocity_mps_scalar,       "m/s");
+            print_metric_row(stream, "Orbital Acceleration:",  body.orbitalAcceleration_mps2_scalar,  "m/s^2");   
+        }
+
+        stream << "========================================================\n";
         return stream;
     }
 
