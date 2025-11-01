@@ -63,6 +63,9 @@
 
 using namespace std;
 
+constexpr double G = 6.674e-11; // m^3 kg^-1 s^-2
+constexpr double PI = 3.14159265358979323846;
+
 // Auxiliary Functions
 static void print_vector(ostream& os, const string& vector_name, double vector_x, double vector_y, double vector_z)
 {
