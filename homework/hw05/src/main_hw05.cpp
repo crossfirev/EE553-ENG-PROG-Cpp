@@ -438,6 +438,24 @@ int main()
     try
     {
         SolarSystem s(dat_file_path);
+
+        cout << "File read in. Print the solar system?" << endl;
+        cout << "Press any key to continue." << endl;
+        cin.get();
+        cout << s;
+
+        cout << "Set the acceleration of all bodies in the solar system to 10?" << endl;
+        cout << "Press any key to continue." << endl;
+        cin.get();
+
+        s.stepForward(
+            Vec3d(
+                10,
+                10,
+                10
+            )
+        );
+        cout << s;
     }
     catch(const exception& e)
     {
