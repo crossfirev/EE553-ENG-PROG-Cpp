@@ -152,7 +152,15 @@ private:
     string bodyName;
     string orbitName;
 
-    double mass_kg;
+    double mass_kg = 0;
+
+    double diameter_m = 0;
+    double perihelion_m = 0,                    aphelion_m = 0;
+    double orbitalPeriod_days = 0,              rotationalPeriod_hours = 0;
+    double axialTilt_deg = 0,                   orbitalInclination_deg = 0;
+    double orbitalRadius_m_scalar = 0;
+    double orbitalVelocity_mps_scalar = 0;
+    double orbitalAcceleration_mps2_scalar = 0;
 
     Vec3d position_m;
     Vec3d velocity_mps;
