@@ -412,9 +412,18 @@ public:
         Body::setAcceleration(bodies, in_acceleration_mps2);
     }
 
-    friend ostream& operator<<(ostream& stream, const vector<Body>& in_bodies)
+    const vector<Body>& getBodies() const
     {
+        return bodies;
+    }
 
+    friend ostream& operator<<(ostream& stream, const SolarSystem& in_SolarSystem)
+    {
+        for (const Body& body : in_SolarSystem.getBodies())
+        {
+            stream << body << "\n";
+        }
+        return stream;
     }
 };
 
