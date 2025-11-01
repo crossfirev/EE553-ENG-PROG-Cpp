@@ -352,36 +352,6 @@ public:
                 orbitalVelocity_mps = 0;
                 orbitalAcceleration_mps2 = 0;
             }
-
-
-            cout << bodyName << "\n------\n\n";
-            cout << "  Orbits: " << orbitName << "\n\n";
-
-            print_header(cout);
-            print_rule(cout);
-
-            print_row(cout, "Body Mass:",              mass_kg,                "kg");
-            print_row(cout, "Body Diameter:",          diameter_m,             "m");
-            print_row(cout, "Body Rotational Period:", rotationalPeriod_hours, "hr");
-            print_row(cout, "Body Axial Tilt:",        axialTilt_deg,          "deg");
-
-            if (bodyName != "Sun")
-            {
-                print_rule(cout);
-
-                print_row(cout, "Orbital Perihelion:",     perihelion_m,           "m");
-                print_row(cout, "Orbital Aphelion:",       aphelion_m,             "m");
-                print_row(cout, "Orbital Period:",         orbitalPeriod_days,     "day");
-                print_row(cout, "Orbital Inclination:",    orbitalInclination_deg, "deg");
-
-                print_rule(cout);
-
-                print_row(cout, "Orbital Radius:",         orbitalRadius_m,         "m");
-                print_row(cout, "Orbital Velocity:",       orbitalVelocity_mps,     "m/s");
-                print_row(cout, "Orbital Acceleration:",   orbitalAcceleration_mps2,"m/s^2");   
-            }
-
-            cout << "========================================================\n";
             // END: read in data file line; 1 line = 1 body
 
             // START: initialize position, velocity and acceleration of the body
