@@ -175,7 +175,6 @@ public:
 
         bodyName = "none";
         orbitName = "none";
-        mass_kg = 0;
 
         position_m = { 0, 0, 0 };
         velocity_mps = { 0, 0, 0 };
