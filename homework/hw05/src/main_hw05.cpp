@@ -167,8 +167,7 @@ private:
     Vec3d acceleration_mps2;
 
 public:
-    // Allows SolarSystem to access Body's private variables
-    friend class SolarSystem;
+    friend class SolarSystem; // Allows SolarSystem to access Body's private variables
 
     //  Default Constructor, assigns all variables to null-esque values.
     Body()
