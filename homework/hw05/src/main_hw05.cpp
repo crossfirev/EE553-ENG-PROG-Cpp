@@ -59,6 +59,7 @@
 #include <string>
 #include <tuple>
 #include <vector> // use C++ STL vector with our struct
+#include <unordered_map>
 
 using namespace std;
 
@@ -179,22 +180,11 @@ public:
     }
 };
 
-tuple<bool, double> searchForMass(const vector<Body>& in_bodies, const string& in_bodyName)
-{
-    for (const Body& body : in_bodies)
-    {
-        if (in_bodyName == body.getBodyName())
-        {
-            return { true, body.getBodyMass() };
-        }
-    }
-    return { false, 0 };
-}
-
 class SolarSystem
 {
 private:
     vector<Body> bodies;
+    std::unordered_map<std::string,double> body_masses;
     double sunMass_kg;
 
     // Auxilury Functions
@@ -277,9 +267,10 @@ public:
                 sunMass_kg = mass_kg;
             }
 
-            auto [found, parent_mass_kg] = searchForMass(bodies, orbitName); // Assumes the parent orbits preceed the child bodies.
-            if (found)
+            body_masses[bodyName] = mass_kg; // THIS ASSUMES A CHILD PLANETARY BODY WILL ALWAYS FOLLOW THE PARENT.
+            if (bodyName != "Sun")
             {
+                double parent_mass_kg = body_masses[orbitName];
                 double mu = G * (parent_mass_kg + mass_kg);
                 orbitalRadius_m = (perihelion_m + aphelion_m) / 2.0; // Approximate radius of an elliptical orbit.
                 orbitalVelocity_mps = sqrt(mu / orbitalRadius_m);
