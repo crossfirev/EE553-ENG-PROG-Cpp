@@ -1,3 +1,55 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   10/31/2025
+ *
+ * Description:
+ *   Implements a simplified Solar System simulation using object-oriented C++.
+ *   Demonstrates class design, encapsulation, inheritance via friendship,
+ *   and file I/O with structured formatting for output clarity.
+ *
+ *   Features:
+ *     • Reads planetary data from a .dat file (one line per celestial body).
+ *     • Calculates orbital parameters assuming circular orbits:
+ *         v = sqrt(G(M + m) / r)
+ *         a = v² / r
+ *     • Randomizes each body's orbital phase to generate realistic positions
+ *       and velocities in 2D space (Z-axis randomized for slight offset).
+ *     • Uses Vec3d struct for position, velocity, and acceleration vectors.
+ *     • Displays formatted tabular output for each body, showing both physical
+ *       and orbital metrics in scientific notation.
+ *     • Supports system-wide acceleration updates via static Body::setAcceleration().
+ *
+ *   Classes:
+ *     • Vec3d
+ *         – Represents a 3D vector with operator overloading (+, +=, <<).
+ *     • Body
+ *         – Encapsulates all physical and orbital attributes of a celestial body.
+ *         – Overloaded << operator for structured output.
+ *     • SolarSystem
+ *         – Reads the data file, computes orbital parameters,
+ *           and stores all Body objects in a vector.
+ *         – Provides stepForward() to uniformly update body accelerations.
+ *
+ *   The main() function:
+ *     • Initializes a SolarSystem from "solarsystem.dat".
+ *     • Displays the system’s computed metrics for all celestial bodies.
+ *     • Pauses for user input before applying a uniform acceleration update.
+ *     • Prints the system again to show updated acceleration values.
+ *
+ *   Notes / Assumptions:
+ *     • Parent mass lookup assumes each parent (e.g., Sun, Earth) appears
+ *       before any of its satellites in the data file.
+ *     • Orbital radius is approximated as (perihelion + aphelion) / 2.
+ *     • The Z-axis offset and randomized phase angle are for visual variety,
+ *       not physical accuracy.
+ *     • The program prints to standard output; no simulation timestep
+ *       integration (e.g., Euler/Verlet) is performed.
+ *
+ *   References:
+ *     • NASA Planetary Fact Sheet (for example solar system constants).
+ *     • EE553-WS Homework 5: C++ Solar System Simulation assignment prompt.
+ */
+
 #include <cmath>
 #include <fstream>
 #include <iostream>
