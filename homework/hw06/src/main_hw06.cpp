@@ -1,3 +1,59 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   11/06/2025
+ *
+ * Description:
+ *   Implements a simple C++ program demonstrating object-oriented
+ *   design principles through class construction, inheritance, and
+ *   static data member management.
+ *
+ *   The program defines a base class `Zebra` that tracks the number
+ *   of active Zebra objects via a static counter, and a derived class
+ *   `ZebraKid` that inherits all base functionality.
+ *
+ *   Features:
+ *     • Demonstrates default and parameterized constructors.
+ *     • Shows constructor and destructor execution order.
+ *     • Implements a static `count` variable to track total living Zebras.
+ *     • Provides accessor (`getName`, `getCount`) and mutator (`setName`) methods.
+ *     • Defines a helper function `f()` that creates local Zebras to illustrate
+ *       object lifetime and scope-based destruction.
+ *     • Demonstrates class inheritance through `ZebraKid`, which calls
+ *       its parent constructor via initializer lists.
+ *
+ *   Classes:
+ *     • Zebra
+ *         – Attributes: private `name`, static `count`.
+ *         – Methods:
+ *             ▪ Default constructor assigns auto-generated name.
+ *             ▪ Parameterized constructor accepts custom name.
+ *             ▪ Destructor decrements the shared object counter.
+ *             ▪ `getCount()` returns the total active object count.
+ *             ▪ `getName()` returns the Zebra’s name.
+ *     • ZebraKid
+ *         – Inherits all members of `Zebra`.
+ *         – Uses parent constructors to initialize derived objects.
+ *
+ *   The main() function:
+ *     • Displays initial Zebra count.
+ *     • Creates multiple Zebra objects to demonstrate lifecycle tracking.
+ *     • Calls `f()` twice to show creation/destruction within function scope.
+ *     • Instantiates a `ZebraKid` object and verifies inherited behavior.
+ *     • Prints messages showing constructor and destructor sequencing.
+ *
+ *   Notes / Assumptions:
+ *     • Output text includes explicit messages for births and deaths
+ *       to visualize object lifecycle behavior.
+ *     • No dynamic allocation is used; all destruction occurs automatically
+ *       when objects go out of scope.
+ *     • The `ZebraKid` class adds no new members; it exists solely to
+ *       illustrate inheritance mechanics.
+ *
+ *   References:
+ *     • EE553-WS Homework 6: C++ Class Design and Inheritance prompt.
+ */
+
+
 #include <limits>
 #include <iostream>
 #include <string>
