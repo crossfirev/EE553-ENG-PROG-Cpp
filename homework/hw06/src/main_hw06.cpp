@@ -17,11 +17,11 @@ public:
 
         std::cout << "Hello I was just born! My name is: " << getName() << ".\n";
     }
-    Zebra(std::string in_name)
+    Zebra(const std::string& in_name)
     {
         name = in_name;
         count++;
-        
+
         std::cout << "Hello I was just born! My name is: " << getName() << ".\n";
     }
     ~Zebra()
@@ -34,7 +34,7 @@ public:
     static int getCount() { return count; }
     std::string getName() { return name; }
     
-    void setName(std::string in_name)
+    void setName(const std::string& in_name)
     {
         name = in_name;
     }
@@ -44,7 +44,7 @@ class ZebraKid : public Zebra
 {
 public:
     ZebraKid() : Zebra() {}
-    ZebraKid(std::string in_name) : Zebra(std::move(in_name)) {}
+    ZebraKid(const std::string& in_name) : Zebra(in_name) {}
 };
 
 int Zebra::count = 0;
