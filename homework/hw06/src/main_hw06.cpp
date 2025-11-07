@@ -7,8 +7,6 @@ class Zebra
 {
 private:
     std::string name;
-
-protected:
     static int count;
 
 public:
