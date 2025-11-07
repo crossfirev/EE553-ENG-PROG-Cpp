@@ -53,10 +53,8 @@ void f()
 {
     std::cout << "Current count: " << Zebra::getCount() << "\n";
     
-    Zebra z1;
-    Zebra z2;
-    Zebra z3("Joker");
-    Zebra z4("Alice");
+    Zebra z1("Joker");
+    Zebra z2("Alice");
     
     std::cout << "New count: " << Zebra::getCount() << "\n";
 }
