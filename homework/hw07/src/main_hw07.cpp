@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <utility>
 
 using namespace std;
 
@@ -13,6 +14,24 @@ using namespace std;
 //  2. function area take no parameters return double const  equal zero
 //  3. function draw take ostream file return void  equal zero
 //  4. make deconstruct ~Shape
+class Shape
+{
+private:
+    double pos_x, pos_y;
+
+public:
+    Shape(double in_pos_x, double in_pos_y): pos_x(in_pos_x), pos_y(in_pos_y) {} // ctor using initializer list
+    virtual ~Shape() = default;
+
+    virtual double area() const = 0;        // Pure virtual since this is set equal to zero.
+    virtual void draw(ostream& file) const = 0;   // Pure virtual since this is set equal to zero.
+
+    pair<double, double> getPosition() const
+    {
+        pair<double, double> position {pos_x, pos_y};
+        return position;
+    }
+};
 
 
 // -------------- Design your Circle class here ---------------
