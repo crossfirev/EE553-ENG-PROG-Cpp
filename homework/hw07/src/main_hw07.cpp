@@ -5,15 +5,14 @@
 
 using namespace std;
 
+constexpr double PI = 3.14159265359;
 
-// -------------- Design your Shape class here ---------------
-// -----------------------------------------------------------
-// Shape abstract class with private double variable x and y that indicate shape position
-// make the following functions
-//  1. Constructor shape (x, y)
-//  2. function area take no parameters return double const  equal zero
-//  3. function draw take ostream file return void  equal zero
-//  4. make deconstruct ~Shape
+struct Position
+{
+    double x;
+    double y;
+};
+
 class Shape
 {
 private:
