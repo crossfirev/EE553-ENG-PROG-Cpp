@@ -88,6 +88,34 @@ public:
     }
 };
 
+class FilledRect: public Shape
+{
+private:
+    double width, height;
+    string shapeType = "Filled Rectangle";
+public:
+    FilledRect(double in_pos_x, double in_pos_y, double in_width, double in_height): Shape(in_pos_x, in_pos_y), width(in_width), height(in_height){}
+    ~FilledRect() = default;
+
+    string getShapeType() const override
+    {
+        return "Filled Rectangle";
+    }
+
+    double area() const override { return width * height; }
+    void draw(ostream &file) const override
+    {
+        Position position = getPosition();
+        
+        file << position.x << " " << position.y << " moveto\n";
+        file << position.x + width << " " << position.y << " lineto\n"; 
+        file << position.x + width << " " << position.y + height << " lineto\n"; 
+        file << position.x << " " << position.y + height << " lineto\n"; 
+        file << "closepath\n"; 
+        file << "fill\n";
+    }
+};
+
 
 int main() {
     cout << "########" << endl;
