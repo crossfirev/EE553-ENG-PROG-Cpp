@@ -166,7 +166,7 @@ int main() {
     // set path to create .ps file to write postscript instructions
     Drawing d("/test.ps");
     // set color
-    d.setrgb(1,0,0); // set drawing color to be bright red:  1 0 0 setrgbcolor
+    d.setRGB(1,0,0); // set drawing color to be bright red:  1 0 0 setrgbcolor
     // add FilledRect
     d.add(new FilledRect(100.0, 550.0, 200.0, 50)); // x y moveto x y lineto ... fill
     // add Rect
