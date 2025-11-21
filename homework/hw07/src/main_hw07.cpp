@@ -1,3 +1,68 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   11/21/2025
+ *
+ * Description:
+ *   Implements an object-oriented geometric drawing system in C++ using an
+ *   abstract base class (`Shape`) and multiple derived classes (`Circle`,
+ *   `Rect`, `FilledRect`). This program demonstrates polymorphism,
+ *   inheritance, dynamic dispatch, and resource management through virtual
+ *   destructors and heap-allocated shape objects.
+ *
+ *   The system outputs PostScript commands to generate a vector-graphics
+ *   drawing containing circles and rectangles (both stroked and filled).
+ *   It also computes and displays the area of each shape using overridden
+ *   `area()` functions.
+ *
+ *   Features:
+ *     • Fully abstract base class `Shape` with:
+ *         – Pixel-position data stored as a `Position` struct.
+ *         – Pure virtual functions `area()` and `draw()`.
+ *         – Virtual destructor for safe polymorphic cleanup.
+ *
+ *     • Derived classes:
+ *         – `Circle`
+ *             ▪ Stores a radius and outputs PostScript arc commands.
+ *             ▪ Computes area using πr².
+ *         – `Rect`
+ *             ▪ Draws via PostScript moveto/lineto/closepath + stroke.
+ *             ▪ Computes area as width × height.
+ *         – `FilledRect`
+ *             ▪ Same geometry as `Rect` but ends with a PostScript `fill`.
+ *             ▪ Computes area identically to the regular rectangle.
+ *
+ *     • `Drawing` class:
+ *         – Maintains an `ofstream` and a vector of `Shape*` for
+ *           polymorphic handling.
+ *         – Provides methods to add shapes, draw them, set RGB color,
+ *           and display areas to stdout.
+ *         – Destructor automatically deallocates all shapes to prevent
+ *           memory leaks.
+ *
+ *   The main() function:
+ *     • Creates a PostScript output file (`/test.ps`).
+ *     • Sets drawing color via `setRGB()`.
+ *     • Adds one `FilledRect`, one `Rect`, and one `Circle`.
+ *     • Calls `draw()` to write all PostScript instructions to file.
+ *     • Calls `showArea()` to print areas for each shape.
+ *     • Demonstrates polymorphism through virtual function calls on
+ *       a heterogeneous collection of shape pointers.
+ *
+ *   Notes / Assumptions:
+ *     • All shapes are stored as raw pointers but are safely cleaned up by
+ *       `Drawing`’s destructor using RAII principles.
+ *     • Output strictly follows PostScript syntax required by the assignment.
+ *     • The `Position` struct improves readability and enforces units (pixels).
+ *     • No exception safety for file I/O beyond a simple open-check, which
+ *       suffices for the assignment scope.
+ *
+ *   References:
+ *     • EE553 Homework 7: Shape Hierarchy and PostScript Drawing System.
+ *     • PostScript arc/moveto/lineto documentation and provided class template.
+ *     • PostScript render tested performed with https://ehubsoft.herokuapp.com/psviewer/
+ */
+
+
 #include <fstream>
 #include <iostream>
 #include <string>
