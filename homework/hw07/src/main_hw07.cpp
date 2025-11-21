@@ -116,6 +116,47 @@ public:
     }
 };
 
+class Drawing
+{
+private:
+    ofstream file;
+    vector<Shape*> shapes;
+public:
+    Drawing(string fileName): file(fileName), shapes() {
+        if (!file.is_open()){ 
+            cerr << "File failed to open, check path.\n";
+            exit(1);
+        }
+    }
+    ~Drawing()
+    {
+        for (auto* s : shapes) { delete s;}
+    }
+
+    void add(Shape* shape)
+    {
+        shapes.push_back(shape);
+    }
+    void draw()
+    {
+        for (auto* s : shapes)
+        {
+            s->draw(file);
+        }
+    }
+    void showArea() const
+    {
+        for (auto* s : shapes)
+        {
+            cout << s->getShapeType() << ": " << s->area() << "\n";
+        }
+    }
+    void setRGB(double red, double green, double blue)
+    {
+        file << red << " " << green << " " << blue << " setrgbcolor\n";
+    }
+};
+
 
 int main() {
     cout << "########" << endl;
