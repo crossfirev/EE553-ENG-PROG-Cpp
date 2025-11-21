@@ -32,6 +32,34 @@ public:
     virtual string getShapeType() const = 0;
 };
 
+class Circle : public Shape
+{
+private:
+    double radius; // Units: pixels
+    string shapeType = "Circle";
+public:
+    Circle(double in_pos_x, double in_pos_y, double in_radius): Shape(in_pos_x, in_pos_y), radius(in_radius) {}
+    ~Circle() = default;
+
+    string getShapeType() const override
+    {
+        return "Circle";
+    }
+
+    double area() const override
+    {
+        return PI * radius * radius;
+    }
+
+    void draw(ostream &file) const override
+    {
+        Position position = getPosition();
+        
+        file << position.x << " " << position.y << " " << radius << " 0 360 arc\n";
+        file << "stroke\n";
+    }
+};
+
 
 int main() {
     cout << "########" << endl;
