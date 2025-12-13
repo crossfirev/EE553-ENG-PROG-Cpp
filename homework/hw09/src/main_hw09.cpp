@@ -1,3 +1,56 @@
+/*
+ * Author: Matthew Lepis
+ * Date:   12/12/2025
+ *
+ * Description:
+ *   Solves EE553 Homework 9: “Buildings with Ocean View.” Given a 0-indexed
+ *   array of building heights with the ocean to the right, the program
+ *   identifies which buildings have an ocean view—i.e., buildings that are
+ *   strictly taller than every building to their right.
+ *
+ *   The core solution is implemented in `findBuildingsWithOceanView()`,
+ *   which performs a single right-to-left scan while tracking the maximum
+ *   height seen so far on the right. When a building’s height is strictly
+ *   greater than this running maximum, its index is recorded as having an
+ *   ocean view. Indices are collected in reverse order and then reversed to
+ *   satisfy the requirement of increasing index order in the output.
+ *
+ *   Features:
+ *     • O(n) time complexity using a single pass from right to left.
+ *     • O(k) additional space for result indices (k = number of visible buildings).
+ *     • Correct handling of duplicate heights:
+ *         – Equal height to the right blocks the view (strict “>” requirement).
+ *     • Defensive guard for empty input (even though constraints specify n >= 1).
+ *     • Test harness in main() executes multiple representative cases and
+ *       prints formatted input/output pairs for validation.
+ *
+ *   Algorithm Overview:
+ *     • Initialize maxRight to the smallest possible value.
+ *     • Iterate i from n-1 down to 0:
+ *         – If heights[i] > maxRight, then i has an ocean view:
+ *             ▪ append i to result
+ *             ▪ update maxRight = heights[i]
+ *     • Reverse result to return indices in increasing order.
+ *
+ *   The main() function:
+ *     • Defines several test vectors, including:
+ *         – Provided examples
+ *         – Single-element input
+ *         – Strictly increasing/decreasing sequences
+ *         – Repeated-height cases (to validate strictness)
+ *     • Calls `findBuildingsWithOceanView()` for each test and prints results.
+ *
+ *   Notes / Assumptions:
+ *     • Indices are 0-based, matching the assignment specification.
+ *     • Heights are treated as integers, but maxRight is stored as long long
+ *       as an extra-safety measure (heights[i] <= 1e9 still fits in int).
+ *     • Output ordering is strictly increasing as required.
+ *
+ *   References:
+ *     • EE553 Homework 9: Buildings with Ocean View prompt.
+ *     • C++ STL usage: std::vector, std::reverse, std::numeric_limits.
+ */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
